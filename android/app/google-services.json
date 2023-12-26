@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "296340636091",
+    "project_id": "i-click-app-d0f07",
+    "storage_bucket": "i-click-app-d0f07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:296340636091:android:a196e5ebe17b0e153c449e",
+        "android_client_info": {
+          "package_name": "com.example.i_click"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlcbJA3Fyko6ByQ4SYHNWmmNSThyQ6yrU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
