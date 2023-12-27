@@ -17,7 +17,7 @@ class SplashViewBody extends StatelessWidget {
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(
-                      'assets/images/splash_image.jpg',
+                      'assets/images/wave.jpg',
                     ),
                     fit: BoxFit.cover)),
           ),

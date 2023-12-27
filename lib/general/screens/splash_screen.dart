@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import '../../features/register_and_login/presentation/screens/register_screen.dart';
+import '../../core/components/componenets.dart';
+import '../../features/register_and_login/presentation/screens/login_screen.dart';
 import '../widgets/splash_view_body.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -19,10 +20,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void delayNavigation(context) {
      Future.delayed(const Duration(seconds: 2),(){
-
-      Navigator.pushReplacement( context , MaterialPageRoute(builder:  (_)=>const RegisterScreen()));
+      navigationByScreens(context,const LoginScreen());
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
