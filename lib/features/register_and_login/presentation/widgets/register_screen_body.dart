@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/components/componenets.dart';
 import '../../../../core/components/constants.dart';
 
+import '../../../home/presentation/view/categories_screen.dart';
 import '../../../home/presentation/view/home_screen.dart';
 
 
@@ -71,7 +72,7 @@ class RegisterScreenBody extends StatelessWidget {
                   height: 15,
                 ),
                 defaultButton(text: 'Sign Up', function: () {
-                  navigationByScreens(context, const HomeScreen());
+                  navigationByScreens(context, const CategoryScreen());
                 }),
                 const SizedBox(height: 15),
 

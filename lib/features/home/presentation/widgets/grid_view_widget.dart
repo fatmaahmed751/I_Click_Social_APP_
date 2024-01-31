@@ -63,7 +63,7 @@ class GridViewWidget extends StatelessWidget {
 
   Widget categoryItemsWidget(CategoryModel model ) => Container(
     width: 120,
-    height: 200,
+    height: 225,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       image: DecorationImage(

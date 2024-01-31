@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
-  Size get preferredSize => Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(100);
   const MyAppBar({
     Key? key,
     this.leading,
@@ -43,9 +43,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           elevation: 0, // Remove default shadow
           leading: leading,
-          title: Text('i.click',
+          title: const Text('i.click',
           style: TextStyle(
-            fontSize: 25,
+            fontSize: 30,
             fontWeight: FontWeight.w500
           ),),
           actions: actions,
