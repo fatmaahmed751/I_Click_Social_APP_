@@ -8,53 +8,52 @@ Widget defaultFormField(
         String? Function(String?)? validator,
         void Function(String)? onChanged,
         String? labelText,
-        //required Widget prefixIcon,
+         Widget? prefixIcon,
         Widget? suffixIcon,
         bool obscureText = false,
         String? value}) =>
     Padding(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-      child: Container(
-        width: 300,
-        height: 60,
-        decoration: BoxDecoration(
-          //  color: Colors.red,
-          borderRadius: BorderRadius.circular(200),
-          //  color: Colors.blueGrey[50]
-        ),
-        child: TextFormField(
-          obscureText: obscureText,
-          onChanged: onChanged,
-          textAlign: TextAlign.justify,
-          validator: validator,
-          keyboardType: type,
-          initialValue: value,
-          controller: controller,
-          decoration: InputDecoration(
-            // prefixIcon:prefixIcon ,
-            suffixIcon: suffixIcon,
-            fillColor: Colors.blueGrey[50],
-            filled: true,
-            border: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(101),
+      child: TextFormField(
+        obscureText: obscureText,
+        onChanged: onChanged,
+        textAlign: TextAlign.justify,
+        validator: validator,
+        keyboardType: type,
+        initialValue: value,
+        controller: controller,
+
+        decoration: InputDecoration(
+           prefixIcon:prefixIcon ,
+          suffixIcon: suffixIcon,
+         // fillColor: AppColors.backgroundColor,
+          filled: true,
+          border: UnderlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.red, // Change the color as needed
+              width: 8.0,
+              // Change the width as needed
             ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(201),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.transparent),
-              borderRadius: BorderRadius.circular(201),
-            ),
-            hintText: hintText,
-            hintStyle: const TextStyle(
-                color: AppColors.containerTextColor, fontSize: 14),
-            labelText: labelText,
-            labelStyle:
-                TextStyle(fontSize: 15, color: AppColors.containerTextColor),
-            contentPadding: const EdgeInsets.only(left: 25),
+
+          // border: OutlineInputBorder(
+          //   borderSide: const BorderSide(color: Colors.transparent),
+           borderRadius: BorderRadius.circular(101),
           ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: AppColors.backgroundScaffoldColor),
+            borderRadius: BorderRadius.circular(201),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: Colors.transparent),
+            borderRadius: BorderRadius.circular(201),
+          ),
+          hintText: hintText,
+          hintStyle: const TextStyle(
+              color: AppColors.containerTextColor, fontSize: 15),
+          labelText: labelText,
+          labelStyle:
+              TextStyle(fontSize:20, color: AppColors.containerTextColor),
+          contentPadding: const EdgeInsets.only(left: 25),
         ),
       ),
     );
@@ -130,7 +129,7 @@ Widget stayLoginIn({
                 fontFamily: 'Bacute Regular',
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: AppColors.kPrimaryColor),
+                color: AppColors.containerTextColor),
           ),
           TextButton(
 
@@ -143,7 +142,7 @@ Widget stayLoginIn({
                   fontFamily: 'Bacute Regular',
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.primaryColor),
+                  color: AppColors.deepOrangeColor),
             ),
           ),
         ],
@@ -161,7 +160,7 @@ Widget defaultButton({
       decoration: BoxDecoration(
        color: AppColors.defaultButtonColor,
         gradient: const LinearGradient(
-          colors: [AppColors.defaultButtonColor, AppColors.containerColor],
+          colors: [Colors.redAccent, AppColors.deepOrangeColor],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
         ),

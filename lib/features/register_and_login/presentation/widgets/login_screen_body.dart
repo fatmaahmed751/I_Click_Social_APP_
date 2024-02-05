@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:gradient_icon/gradient_icon.dart';
 
 import '../../../../core/components/componenets.dart';
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../screens/login_screen.dart';
 import '../screens/register_screen.dart';
+
 
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({
@@ -23,47 +26,76 @@ class LoginScreenBody extends StatelessWidget {
         alignment: Alignment.bottomCenter,
         children: [
           Container(
-            width: 370,
+            width: double.infinity,
             height: 760,
-            decoration: const BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage(
-                      'assets/images/splash_image.jpg',
-                    ),
-                    fit: BoxFit.cover)),
+            decoration:  const BoxDecoration(
+              color: AppColors.backgroundColor,
+                gradient: LinearGradient(
+                colors: [ AppColors.backgroundColor, Colors.black],
+
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+                ),
+                // image: DecorationImage(
+                //     image: AssetImage(
+                //       'assets/images/login.jpg',
+                //     ),
+                //     fit: BoxFit.cover)
+                  ),
           ),
-          Container(
-            width: 360,
-            height: 500,
-            decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(50),
-                  topLeft: Radius.circular(50),
-                )),
+          Padding(
+            padding: const EdgeInsets.only(top:8.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 20,
+                Image.asset('assets/images/app_icon-removebg-preview.png',
+                  height: 120,),
+                const SizedBox(
+                  height:40,
+                ),
+                const Text(
+                  textAlign: TextAlign.center,
+                  'Sign in',
+                  style:  TextStyle(
+                      decoration: TextDecoration.none,
+                      fontFamily: 'Bacute Regular',
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.categoryTextColor),
+                ),
+                const SizedBox(
+                  height:30,
                 ),
                 defaultFormField(
+                  prefixIcon: const Icon(
+                    Icons.email_outlined,
+                    color: AppColors.containerTextColor,
+                    size: 17,
+                  ) ,
                     hintText: 'Email',
                     controller: emailController,
                     type: TextInputType.text),
                 defaultFormField(
+                    prefixIcon: const Icon(
+                      Icons.lock_outline,
+                      color: AppColors.containerTextColor,
+                      size: 17,
+                    ),
                     hintText: 'Password',
                     controller: passwordController,
                     type: TextInputType.text,
                     suffixIcon: const Icon(
                       Icons.visibility_off_outlined,
                       color: AppColors.containerTextColor,
+                      size: 20,
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 const CustomText(
                   text: 'Start with Awesome experience',
-                  color: AppColors.primaryColor,
+                  color: AppColors.categoryTextColor,
                   size: 15,
                   fontWeight: FontWeight.w700,
                 ),
@@ -71,31 +103,55 @@ class LoginScreenBody extends StatelessWidget {
                   height: 15,
                 ),
                 defaultButton(text: 'Sign In', function: () {}),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 const CustomText(
                   text: 'Or Login With',
-                  color: AppColors.primaryColor,
+                  color: AppColors.categoryTextColor,
                   size: 15,
                   fontWeight: FontWeight.w700,
                 ),
                 const SizedBox(height: 20),
-                const SizedBox(
+                 SizedBox(
                   height: 60,
-                  width: 140,
+                  width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundImage: AssetImage('assets/images/google.jpg'),
+                      IconButton(onPressed: (){}, icon:  const GradientIcon(
+                        icon: Icons.apple_rounded,
+                        gradient: LinearGradient(
+                          colors: [Colors.deepOrangeAccent, Colors.grey],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        size: 50,
+                      ),),
+                      const SizedBox(
+                        width:5,
                       ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      CircleAvatar(
-                        radius: 20,
-                        backgroundImage: AssetImage('assets/images/face.jpg'),
-                      ),
+                      IconButton(onPressed: (){}, icon:   const GradientIcon(
+                        icon:
+                        Icons.g_mobiledata_outlined,
+                        //facebook_outlined,
+                        gradient: LinearGradient(
+                          colors: [Colors.deepOrangeAccent, Colors.grey],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        size: 70,
+                      ),),
+                      const SizedBox(width: 27,),
+                      IconButton(onPressed: (){}, icon:   const GradientIcon(
+                        icon:
+                        Icons.
+                        facebook_outlined,
+                        gradient: LinearGradient(
+                          colors: [Colors.deepOrangeAccent, Colors.grey],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        size: 42,
+                      ),),
                     ],
                   ),
                 ),
