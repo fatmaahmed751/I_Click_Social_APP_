@@ -4,9 +4,11 @@ import 'package:gradient_icon/gradient_icon.dart';
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../../../home/presentation/widgets/container_of_story.dart';
+import 'card_of_new_news_tablet.dart';
+import 'container_for_reels_tablet.dart';
 
 Widget middleColumnForTabletScreen() => Expanded(
-      flex: 4,
+      flex: 5,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: SingleChildScrollView(
@@ -76,7 +78,6 @@ Widget middleColumnForTabletScreen() => Expanded(
                 height: 7,
               ),
               SizedBox(
-//  color: Colors.red,
                 height: 200,
                 child: ListView.separated(
                   shrinkWrap: true,
@@ -95,7 +96,7 @@ Widget middleColumnForTabletScreen() => Expanded(
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 6),
+                      padding: const EdgeInsets.only(left: 8.0, top: 8),
                       child: Row(
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -246,142 +247,47 @@ Widget middleColumnForTabletScreen() => Expanded(
                   ],
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: AppColors.backgroundColor,
-                  borderRadius: BorderRadius.circular(6),
-                  gradient: const LinearGradient(
-                    colors: [AppColors.backgroundColor, Colors.black],
-                    begin: Alignment.topLeft,
-                    end: Alignment.topLeft,
-                  ),
-                ),
-                width: double.infinity,
-                child: Card(
-                  color: Colors.black54,
-                  //AppColors.kPrimaryColor,
-                  clipBehavior: Clip.hardEdge,
-                  shadowColor: AppColors.containerTextColor,
-                  elevation: 50.0,
-                  //margin: const EdgeInsets.all(10.0),
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 25,
-                              backgroundImage: NetworkImage(
-                                  'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'),
-                            ),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CustomText(
-                                  text: 'Fatma Ahmed',
-                                  color: AppColors.categoryTextColor,
-                                  size: 15,
-                                ),
-                                SizedBox(
-                                  height: 3,
-                                ),
-                                CustomText(
-                                  text: 'hi',
-                                  // now.toLocal().toString(),
-                                  color: Colors.white38,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        const CustomText(
-                          text: "Fatma Ahmed",
-                          color: AppColors.deepOrangeColor,
-                          size: 18,
-                        ),
-                        CustomText(
-                          text:
-                              "Hello It is A good Day to be more excellent in Flutter..Hello It is A good Day to be more excellent in Flutter  ",
-                          maxLines: 2,
-                          textOverflow: TextOverflow.ellipsis,
-                          color: Colors.yellow[50],
-                          size: 15,
-                        ),
-                        const SizedBox(height: 15),
-                        Stack(
-                            alignment: AlignmentDirectional.bottomEnd,
-                            children: [
-                              Container(
-                                height: 210,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: Colors.red,
-
-                                  borderRadius: BorderRadius.circular(10),
-
-                                  image: const DecorationImage(
-                                      image: NetworkImage(
-                                          'https://img.freepik.com/free-photo/indoor-shot-positive-bearded-male-casual-red-t-shirt-points-with-index-finger-aside_273609-16274.jpg?w=740&t=st=1676455489~exp=1676456089~hmac=194b92bce1f23e043af42fa8c0056a7bc52d540ae8a894f583622fa095cc06c4'),
-                                      fit: BoxFit.cover),
-
-                                  // height: 250.0,
-                                  // width: double.infinity,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.favorite_border,
-                                        color:
-                                            AppColors.backgroundScaffoldColor,
-                                      )),
-                                  const Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: 5.0, left: 0, right: 8),
-                                    child: Text(
-                                      'Likes',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 13.0,
-                                      ),
-                                    ),
-                                  ),
-                                  IconButton(
-                                      onPressed: () {},
-                                      icon: const Icon(
-                                        Icons.mode_comment_outlined,
-                                        color:
-                                            AppColors.backgroundScaffoldColor,
-                                      )),
-                                  const Padding(
-                                    padding: EdgeInsets.only(
-                                        bottom: 5.0, left: 0, right: 8),
-                                    child: Text(
-                                      'Likes',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 13.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ]),
-                      ],
+              const CardOfNewPostForTablet(),
+           Card(
+            color: Colors.black54,
+            clipBehavior: Clip.hardEdge,
+            shadowColor: AppColors.containerTextColor,
+            elevation: 50.0,
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Image.asset('assets/images/ree-removebg-preview.png',
+                    height: 60,
+                    width: 60,),
+                    const Padding(
+                      padding: EdgeInsets.only(bottom:5.0),
+                      child: CustomText(text: 'Reels and short videos',
+                          color: AppColors.containerColor,
+                          size: 16,
+                          fontWeight: FontWeight.w200),
                     ),
-                  ),
+                    const Spacer(),
+                     CustomText(text: 'Create',
+                        color:Colors.blue[500],
+                        //AppColors.containerColor,
+                        size: 16,
+                        fontWeight: FontWeight.w200),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    const Icon(
+                      Icons.insert_link_sharp,
+                      color: Colors.white,
+                      size: 20.0,
+                    ),
+                  ],
                 ),
-              ),
+                const ContainerForReelsForTablet(),
+              ],
+            ),
+          ),
+
             ],
           ),
         ),

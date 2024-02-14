@@ -60,8 +60,8 @@ class MyApp extends StatelessWidget {
 
       ScreenTypeLayout.builder(
       breakpoints: const ScreenBreakpoints(
-      tablet: 600,
-          desktop: 950,
+      tablet: 700,
+          desktop: 1000,
           watch: 300
       ),
       mobile:(context)=>
