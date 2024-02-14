@@ -43,9 +43,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Container(
-                        width: double.infinity,
-                        child: const Row(
+                      const IntrinsicWidth(
+                        //width: double.infinity,
+                        child: Row(
                           children: [
                             SearchBarWidget(),
 

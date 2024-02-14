@@ -50,7 +50,7 @@ class RegisterScreenBody extends StatelessWidget {
               const SizedBox(
                 height:20,
               ),
-            Image.asset('assets/images/app_icon-removebg-preview.png',
+            Image.asset('assets/images/i_click.png',
             height: 120,),
               const SizedBox(
                 height:50,

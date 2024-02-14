@@ -1,6 +1,8 @@
+
 import 'package:flutter/material.dart';
 import 'package:i_click/core/components/constants.dart';
 
+import '../../../../general/calcualate_responsive__font-size.dart';
 import '../../../../general/widgets/circle_avatar.dart';
 import '../../../../general/widgets/custom-text.dart';
 
@@ -13,15 +15,15 @@ Widget containerOfChat(
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const CustomText(text:'Ahmed Badry',
-          size:12,
+         const CustomText(text:'Ahmed Badry',
+
           color: AppColors.containerColor,),
         Row(
           children: [
             const CustomText(text:'Ahmed Badry',
               size:12,
               color: AppColors.containerColor,),
-            SizedBox(width: 2,),
+            const SizedBox(width: 2,),
             Container(
               decoration: BoxDecoration(
                   color: Colors.white38,
@@ -31,11 +33,11 @@ Widget containerOfChat(
               width:3,
 
             ),
-            SizedBox(width: 2,),
+            const SizedBox(width: 2,),
             CustomText(
               text: now.toLocal().toString(),
               color: Colors.white38,
-              size: 10,
+             // size: 10,
             ),
             const SizedBox(width: 30,),
             circlePicture(10,12),

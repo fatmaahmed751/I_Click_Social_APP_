@@ -49,7 +49,7 @@ class LoginScreenBody extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('assets/images/app_icon-removebg-preview.png',
+                Image.asset('assets/images/i_click.png',
                   height: 120,),
                 const SizedBox(
                   height:40,

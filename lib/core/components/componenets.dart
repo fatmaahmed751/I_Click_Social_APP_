@@ -180,5 +180,5 @@ Widget defaultButton({
       ),
     );
 void navigationByScreens(context, widget) {
-  Navigator.push(context, MaterialPageRoute(builder: (_) => widget));
+  Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => widget));
 }

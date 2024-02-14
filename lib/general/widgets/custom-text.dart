@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../calcualate_responsive__font-size.dart';
+
 class CustomText extends StatelessWidget {
   final String text;
   final Color? color;
@@ -37,7 +39,7 @@ class CustomText extends StatelessWidget {
           TextStyle(
             decoration: TextDecoration.none,
             color: color,
-            fontSize: size,
+            fontSize: getResponsiveFontSize(context , fontSize: size!),
             fontWeight: fontWeight,
             height: heigtText,
             fontFamily:'Bacute Regular',
