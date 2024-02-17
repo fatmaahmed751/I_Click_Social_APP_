@@ -8,6 +8,7 @@ import '../../../home/presentation/widgets/container_of_story.dart';
 import '../../../../general/widgets/circle_avatar.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../widgets/drawer_widget_for_tablet_screen.dart';
+import '../widgets/last_column_for_tablet_screen.dart';
 import '../widgets/middle_column_for_tablet_screen.dart';
 import '../widgets/tablet_drawer_widget.dart';
 
@@ -38,14 +39,7 @@ class TabletScreen extends StatelessWidget {
             ),
 
             middleColumnForTabletScreen(),
-            const Expanded(
-              flex: 2,
-              child: Column(
-                children: [
-
-                ],
-              ),
-            )
+            const LastColumnForTabletScreen(),
           ],
         ),
       ),

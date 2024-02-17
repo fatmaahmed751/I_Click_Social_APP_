@@ -8,7 +8,7 @@ import 'card_of_new_news_tablet.dart';
 import 'container_for_reels_tablet.dart';
 
 Widget middleColumnForTabletScreen() => Expanded(
-      flex: 5,
+      flex: 4,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: SingleChildScrollView(
@@ -22,11 +22,11 @@ Widget middleColumnForTabletScreen() => Expanded(
 // SizedBox(width: 15,),
               Row(
                 children: [
-                  const CircleAvatar(
-                    radius: 22,
-                    backgroundImage: NetworkImage(
-                        'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'),
+                  Image.asset(
+                    'assets/images/i_click.png',
+                    height: 40,
                   ),
+
                   const Spacer(),
                   Container(
                     width: 36,
@@ -58,9 +58,10 @@ Widget middleColumnForTabletScreen() => Expanded(
                   const SizedBox(
                     width: 5,
                   ),
-                  Image.asset(
-                    'assets/images/i_click.png',
-                    height: 40,
+                  const CircleAvatar(
+                    radius: 22,
+                    backgroundImage: NetworkImage(
+                        'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'),
                   ),
                 ],
               ),
@@ -204,7 +205,7 @@ Widget middleColumnForTabletScreen() => Expanded(
                           const Padding(
                             padding: EdgeInsets.only(top: 10.0),
                             child: CustomText(
-                                text: 'Photo/ video',
+                                text: 'Photo/video',
                                 color: AppColors.containerColor,
                                 size: 15,
                                 fontWeight: FontWeight.w200),
@@ -276,10 +277,13 @@ Widget middleColumnForTabletScreen() => Expanded(
                     const SizedBox(
                       width: 10,
                     ),
-                    const Icon(
-                      Icons.insert_link_sharp,
-                      color: Colors.white,
-                      size: 20.0,
+                    Padding(
+                      padding: const EdgeInsets.only(top:8.0),
+                      child: const Icon(
+                        Icons.more_horiz_sharp,
+                        color: AppColors.containerColor,
+                        size:22.0,
+                      ),
                     ),
                   ],
                 ),
