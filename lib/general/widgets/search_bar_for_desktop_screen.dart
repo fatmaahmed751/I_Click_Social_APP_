@@ -7,8 +7,8 @@ import '../../core/components/constants.dart';
 import '../../features/home/presentation/manager/home_cubit/home_cubit.dart';
 import '../../features/home/presentation/manager/home_cubit/home_states.dart';
 
-class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({Key? key}) : super(key: key);
+class SearchAppBarForDesktop extends StatelessWidget {
+  const SearchAppBarForDesktop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +18,8 @@ class SearchBarWidget extends StatelessWidget {
         builder: (context, state) {
           return IntrinsicWidth(
             child: SizedBox(
-              height:35,
-            width:400,
+              height:40,
+              width:250,
               child: TextFormField(
                 keyboardType: TextInputType.text,
                 controller: searchController,
@@ -34,15 +34,15 @@ class SearchBarWidget extends StatelessWidget {
                   filled: true,
                   fillColor:  AppColors.kPrimaryColor,
                   suffixIcon: IconButton(
-                      onPressed: () {
-                       // Navigator.push(context,MaterialPageRoute(builder: (context)=>const FilterScreen()));
-                      },
-                      icon:  SvgPicture.asset(
-                        'assets/images/svg_images/search_icon.svg',
-                        height: 70,
-                       width: 40,
-                       //fit:BoxFit.fitWidth
-                      ),
+                    onPressed: () {
+                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>const FilterScreen()));
+                    },
+                    icon:  SvgPicture.asset(
+                      'assets/images/svg_images/search_icon.svg',
+                      height: 70,
+                      width: 40,
+                      //fit:BoxFit.fitWidth
+                    ),
                   ),
 
                   border: OutlineInputBorder(

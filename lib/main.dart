@@ -8,6 +8,7 @@ import 'package:i_click/general/screens/splash_screen.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 //import 'package:responsive_framework/responsive_framework.dart';
 import 'core/components/constants.dart';
+import 'features/desktop/presentation/views/desktop_screen.dart';
 import 'features/home/presentation/manager/home_cubit/home_cubit.dart';
 import 'features/home/presentation/view/categories_screen.dart';
 import 'features/home/presentation/widgets/bottom_nav_and_tabBar.dart';
@@ -68,7 +69,7 @@ class MyApp extends StatelessWidget {
       const BottomNavWidget(),
       //(context)=>Container(color:Colors.blue),
       tablet:(context)=>  const TabletScreen(),
-      desktop:(context)=> Container(color: Colors.red),
+      desktop:(context)=>const DeskTopScreen(),
       watch: (context)=>Container(color: Colors.purple),
       )
       ),

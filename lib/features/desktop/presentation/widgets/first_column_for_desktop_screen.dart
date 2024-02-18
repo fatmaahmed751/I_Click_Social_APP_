@@ -67,39 +67,54 @@ List<DrawerWidgetModel> items = [
     text: Text('Profile'),
   )
 ];
-Widget drawerForTablet(context) => Container(
-      width: 150,
-      height: MediaQuery.sizeOf(context).height,
-      decoration: const BoxDecoration(
-        color: AppColors.backgroundColor,
-      ),
-      child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          // physics: const NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) => listTileWidget(items[index]),
-          //separatorBuilder: (context, index) => const SizedBox(height: 10),
-          itemCount: items.length),
-    );
+Widget drawerForTablet(context) => Expanded(
+  flex:3,
+  child:   Container(
 
+    width: 300,
+
+    height: MediaQuery.sizeOf(context).height,
+
+    decoration: const BoxDecoration(
+
+      color: AppColors.backgroundColor,
+
+    ),
+
+    child:  ListView.separated(
+      shrinkWrap: true,
+      //scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) => listTileWidget(items[index]),
+      itemCount: 10,
+      separatorBuilder: (context, index) =>
+      const SizedBox(height: 11),
+    ),
+
+  ),
+);
+// Widget randomItemsForFirstColumnForDeskTop()=>Row(
+//   children: [
+//     Icon(icon(Icons)),
+//   ],
+// );
 Widget listTileWidget(DrawerWidgetModel drawerWidgetModel) => Padding(
-      padding: const EdgeInsets.symmetric(vertical: 33.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Center(
-            child: drawerWidgetModel.iconButton,
+  padding: const EdgeInsets.symmetric(vertical: 33.0),
+  child: Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Center(
+        child: drawerWidgetModel.iconButton,
 
-            //subtitle: drawerWidgetModel.text,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          CustomText(
-            text: "${drawerWidgetModel.text.data}",
-            size: 17,
-            color: AppColors.categoryTextColor,
-          ),
-        ],
+        //subtitle: drawerWidgetModel.text,
       ),
-    );
+      const SizedBox(
+        height: 10,
+      ),
+      CustomText(
+        text: "${drawerWidgetModel.text.data}",
+        size: 17,
+        color: AppColors.categoryTextColor,
+      ),
+    ],
+  ),
+);
