@@ -47,8 +47,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           elevation:0, // Remove default shadow
           leading:  Image.asset(
             'assets/images/i_click.png',
-            height: 80,
-            width: 60,
+            height: 90,
+            width: 70,
           ),
           title: const SearchAppBarForDesktop(),
 

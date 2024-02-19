@@ -13,44 +13,44 @@ class ProfileScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-        height: MediaQuery.of(context).size.height,
+      body: Container(
+       height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
           color: AppColors.backgroundColor,
           gradient: LinearGradient(
 
-            colors: [AppColors.backgroundColor, Colors.black],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
+      colors: [AppColors.backgroundColor, Colors.black],
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
           ),
         ),
         child:
 
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            picturesOfProfile(),
-            const SizedBox(
-              height: 10,
-            ),
-            rowOfProfileDetails(),
-            const Divider(
-              indent: 10,
-              endIndent: 10,
-              height: 15.0,
-              // thickness: 0.3,
-              color: AppColors.containerColor,
-            ),
-           const IconsOfProfileRow(),
-            const SizedBox(height: 20,),
-            gridViewWidget()
-
-          ],
-        ),
-        ),
+        SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+      picturesOfProfile(),
+      const SizedBox(
+          height: 10,
       ),
+      rowOfProfileDetails(),
+      const Divider(
+          indent: 10,
+          endIndent: 10,
+          height: 15.0,
+          // thickness: 0.3,
+          color: AppColors.containerColor,
+      ),
+             const IconsOfProfileRow(),
+      const SizedBox(height: 20,),
+      gridViewWidget()
+
+            ],
+          ),
+        ),
+        ),
     );
   }
 }

@@ -8,7 +8,7 @@ Widget lastColumnForDesktopScreen()=>Expanded(
   flex:2,
   child: SingleChildScrollView(
     child: Padding(
-      padding: const EdgeInsets.only(right:8.0,left:50),
+      padding: const EdgeInsets.only(right:8.0,left:30),
       child: Column(
         children: [
           // const SizedBox(

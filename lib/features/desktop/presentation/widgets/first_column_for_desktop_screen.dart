@@ -3,118 +3,256 @@ import 'package:gradient_icon/gradient_icon.dart';
 import 'package:i_click/features/tablet/presentation/widgets/tablet_drawer_widget.dart';
 
 import '../../../../core/components/constants.dart';
+import '../../../../general/widgets/circle_avatar.dart';
 import '../../../../general/widgets/custom-text.dart';
 
-List<DrawerWidgetModel> items = [
-  const DrawerWidgetModel(
-    iconButton: GradientIcon(
-      icon: Icons.home_outlined,
-      gradient: LinearGradient(
-        colors: [Colors.deepOrangeAccent, Colors.grey],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
+
+class DrawerForFirstColumnDesktop extends StatefulWidget {
+  const DrawerForFirstColumnDesktop({super.key});
+
+  @override
+  State<DrawerForFirstColumnDesktop> createState() => _DrawerForFirstColumnDesktopState();
+}
+
+class _DrawerForFirstColumnDesktopState extends State<DrawerForFirstColumnDesktop> {
+  List<ItemForFirstColumnModel> items = [
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.group_add,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
       ),
-      size: 40,
+      text: Text('Find friends'),
     ),
-    text: Text('Home'),
-  ),
-  const DrawerWidgetModel(
-    iconButton: GradientIcon(
-      icon: Icons.messenger_outline_outlined,
-      gradient: LinearGradient(
-        colors: [Colors.deepOrangeAccent, Colors.grey],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.lock_clock,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
       ),
-      size: 30,
+      text: Text('Memories'),
     ),
-    text: Text('Chat'),
-  ),
-  const DrawerWidgetModel(
-    iconButton: GradientIcon(
-      icon: Icons.tv_rounded,
-      gradient: LinearGradient(
-        colors: [Colors.deepOrangeAccent, Colors.grey],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.bookmark,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
       ),
-      size: 35,
+      text: Text('Saved'),
     ),
-    text: Text('Videos'),
-  ),
-  const DrawerWidgetModel(
-    iconButton: GradientIcon(
-      icon: Icons.shop_2_sharp,
-      gradient: LinearGradient(
-        colors: [Colors.deepOrangeAccent, Colors.grey],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.shopping_bag_outlined,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
       ),
-      size:35,
+      text: Text('Marketplace'),
     ),
-    text: Text('Market'),
-  ),
-  const DrawerWidgetModel(
-    iconButton: GradientIcon(
-      icon: Icons.person_pin,
-      gradient: LinearGradient(
-        colors: [Colors.deepOrangeAccent, Colors.grey],
-        begin: Alignment.topLeft,
-        end: Alignment.bottomRight,
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.favorite,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
       ),
-      size: 40,
+      text: Text('Favorites'),
     ),
-    text: Text('Profile'),
-  )
-];
-Widget drawerForTablet(context) => Expanded(
-  flex:3,
-  child:   Container(
-
-    width: 300,
-
-    height: MediaQuery.sizeOf(context).height,
-
-    decoration: const BoxDecoration(
-
-      color: AppColors.backgroundColor,
-
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.video_library_outlined,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
+      ),
+      text: Text('Videos'),
     ),
-
-    child:  ListView.separated(
-      shrinkWrap: true,
-      //scrollDirection: Axis.horizontal,
-      itemBuilder: (context, index) => listTileWidget(items[index]),
-      itemCount: 10,
-      separatorBuilder: (context, index) =>
-      const SizedBox(height: 11),
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.event,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
+      ),
+      text: Text('Events'),
     ),
+    const ItemForFirstColumnModel(
+      iconButton: GradientIcon(
+        icon: Icons.flight_takeoff_outlined,
+        gradient: LinearGradient(
+          colors: [Colors.deepOrangeAccent, Colors.purple],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        size: 25,
+      ),
+      text: Text('Ads Manager '),
+    )
+  ];
+  int activeIndex = 0;
 
-  ),
-);
-// Widget randomItemsForFirstColumnForDeskTop()=>Row(
-//   children: [
-//     Icon(icon(Icons)),
-//   ],
-// );
-Widget listTileWidget(DrawerWidgetModel drawerWidgetModel) => Padding(
-  padding: const EdgeInsets.symmetric(vertical: 33.0),
-  child: Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Center(
-        child: drawerWidgetModel.iconButton,
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.only(top: 15),
+          width: 300,
 
-        //subtitle: drawerWidgetModel.text,
+          height: MediaQuery
+              .sizeOf(context)
+              .height,
+
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 12.0),
+                  child: Row(
+                    children: [
+                      circleOfChats(15, 1),
+                      const SizedBox(width: 8,),
+                      const CustomText(
+                        text: "Fatma Ahmed",
+                        size: 14,
+                        color: AppColors.categoryTextColor,
+                      ),
+                    ],
+                  ),
+                ),
+                ListView.separated(
+                  shrinkWrap: true,
+                  //scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) =>
+                      GestureDetector(
+                          onTap: () {
+                            if (activeIndex != index) {
+                              setState(() {
+                                activeIndex = index;
+                                print("$activeIndex");
+                              });
+                            }
+                          },
+                          child: ActiveAndInActiveItem(
+                            itemForFirstColumnModel: items[index],
+                              isActive: activeIndex == index,
+                          )
+                      ),
+                  itemCount: items.length,
+                  separatorBuilder: (context, index) =>
+                  const SizedBox(height: 0),
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 10.0, top: 10),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        backgroundColor: AppColors.backgroundScaffoldColor,
+                        radius: 20,
+                        child: Icon(
+                          Icons.arrow_drop_down_outlined,
+                          color: Colors.white,
+                          size: 22.0,
+                        ),
+                      ),
+                      SizedBox(width: 12,),
+                      CustomText(
+                        text: "More",
+                        size: 16,
+                        color: AppColors.categoryTextColor,
+                      ),
+                    ],
+                  ),
+                ),
+
+              ],
+            ),
+          ),
+
+        ),
       ),
-      const SizedBox(
-        height: 10,
-      ),
-      CustomText(
-        text: "${drawerWidgetModel.text.data}",
-        size: 17,
-        color: AppColors.categoryTextColor,
-      ),
-    ],
-  ),
-);
+    );
+  }
+}
+
+class ActiveAndInActiveItem extends StatelessWidget {
+   const ActiveAndInActiveItem({
+     super.key,
+     required this.itemForFirstColumnModel,
+     required this.isActive });
+
+ final ItemForFirstColumnModel itemForFirstColumnModel;
+ final bool isActive ;
+
+  @override
+  Widget build(BuildContext context) {
+    return isActive?
+    listTileActiveWidget(
+      itemForFirstColumnModel
+    ):listTileInActiveWidget(itemForFirstColumnModel);
+  }
+
+  }
+  Widget listTileActiveWidget(ItemForFirstColumnModel itemForFirstColumnModel,
+     ) => ListTile(
+
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          leading:
+          itemForFirstColumnModel.iconButton,
+          subtitle:
+          CustomText(
+            text: "${itemForFirstColumnModel.text.data}",
+            size: 14,
+            color: AppColors.categoryTextColor,
+
+
+        ),
+      );
+
+  Widget listTileInActiveWidget(ItemForFirstColumnModel itemForFirstColumnModel,
+   ) =>
+
+      ListTile(
+        trailing: Container(
+          height:30,
+          width:100,
+          color: Colors.red,
+        ),
+        enabled: true,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        leading:
+        itemForFirstColumnModel.iconButton,
+        subtitle:
+        CustomText(
+          text: "${itemForFirstColumnModel.text.data}",
+          size: 14,
+          color: AppColors.categoryTextColor,
+
+
+        ),
+      );

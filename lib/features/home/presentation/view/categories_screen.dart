@@ -43,21 +43,23 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const IntrinsicWidth(
-                        //width: double.infinity,
-                        child: Row(
-                          children: [
-                            SearchBarWidget(),
+                      const Row(
+                        children: [
+                          Expanded(
+                            flex:2,
+                              child: SearchBarWidget()),
 
-                           SizedBox(width: 40,),
-                            // SizedBox(width: 15,),
-                            CircleAvatar(
-                              radius: 25,
+                         SizedBox(width: 40,),
+                          // SizedBox(width: 15,),
+                          Expanded(
+                            flex:1,
+                            child: CircleAvatar(
+                              radius: 22,
                               backgroundImage: NetworkImage(
                                   'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
 
                       const SizedBox(
@@ -85,7 +87,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         //  color: Colors.red,
                         height: 200,
                         child: ListView.separated(
-                          shrinkWrap: true,
+                         shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) => containerOfStory(),
                           itemCount: 6,

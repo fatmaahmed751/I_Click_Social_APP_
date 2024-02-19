@@ -97,7 +97,7 @@ Widget middleColumnForTabletScreen() => Expanded(
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(left: 8.0, top: 8),
+                      padding: const EdgeInsets.only(left: 8.0, top: 12),
                       child: Row(
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -144,9 +144,10 @@ Widget middleColumnForTabletScreen() => Expanded(
                     ),
                     Container(
                       height: 70,
-                      padding: const EdgeInsets.only(right: 5),
+                      padding: const EdgeInsets.only(left: 5),
                       child: Row(
-                        // crossAxisAlignment: CrossAxisAlignment.baseline,
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       // mainAxisAlignment:
 
                         children: [
                           IconButton(

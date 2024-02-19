@@ -8,9 +8,20 @@ class DrawerWidgetModel  {
   final Widget iconButton;
  final Text text;
 
-   const DrawerWidgetModel({ required this.iconButton,
+   const DrawerWidgetModel({
+     required this.iconButton,
     required this.text
    });
+
+
+}
+class ItemForFirstColumnModel  {
+  final Widget iconButton;
+  final Text text;
+
+  const ItemForFirstColumnModel({ required this.iconButton,
+    required this.text
+  });
 
 
 }
