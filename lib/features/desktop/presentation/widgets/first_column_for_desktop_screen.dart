@@ -212,16 +212,14 @@ class ActiveAndInActiveItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isActive?
-    listTileActiveWidget(
+    listTileInActiveWidget(
       itemForFirstColumnModel
-    ):listTileInActiveWidget(itemForFirstColumnModel);
+    ):listTileActiveWidget(itemForFirstColumnModel);
   }
 
   }
   Widget listTileActiveWidget(ItemForFirstColumnModel itemForFirstColumnModel,
      ) => ListTile(
-
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           leading:
           itemForFirstColumnModel.iconButton,
           subtitle:
@@ -229,30 +227,30 @@ class ActiveAndInActiveItem extends StatelessWidget {
             text: "${itemForFirstColumnModel.text.data}",
             size: 14,
             color: AppColors.categoryTextColor,
-
-
         ),
       );
 
   Widget listTileInActiveWidget(ItemForFirstColumnModel itemForFirstColumnModel,
    ) =>
-
       ListTile(
         trailing: Container(
-          height:30,
-          width:100,
-          color: Colors.red,
+          padding: const EdgeInsets.only(top:30),
+          height:35,
+          width:3,
+          color: AppColors.backgroundMainColor,
         ),
         enabled: true,
         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         leading:
         itemForFirstColumnModel.iconButton,
         subtitle:
-        CustomText(
-          text: "${itemForFirstColumnModel.text.data}",
-          size: 14,
-          color: AppColors.categoryTextColor,
-
-
+        Padding(
+          padding: const EdgeInsets.only(bottom:2.0),
+          child: CustomText(
+            text: "${itemForFirstColumnModel.text.data}",
+            size:17,
+            fontWeight: FontWeight.bold,
+            color: AppColors.categoryTextColor,
+          ),
         ),
       );

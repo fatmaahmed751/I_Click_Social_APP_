@@ -111,8 +111,8 @@ Widget middleColumnForDesktopScreen() => Expanded(
 
                         children: [
                           Container(
-                           // color:Colors.red,
-                            width:120,
+                            // color:Colors.red,
+                            width: 120,
                             child: Row(
                               children: [
                                 IconButton(
@@ -133,7 +133,6 @@ Widget middleColumnForDesktopScreen() => Expanded(
 
 // icon:const Icon(FontAwesomeIcons.houseUser) ,
                                 ),
-
                                 const Padding(
                                   padding: EdgeInsets.only(top: 8.0),
                                   child: CustomText(
@@ -145,13 +144,6 @@ Widget middleColumnForDesktopScreen() => Expanded(
                               ],
                             ),
                           ),
-
-
-                          // const SizedBox(
-                          //
-                          //   width: 7,
-                          //
-                          // ),
 
                           Row(
                             children: [
@@ -173,13 +165,6 @@ Widget middleColumnForDesktopScreen() => Expanded(
 
 // icon:const Icon(FontAwesomeIcons.houseUser) ,
                               ),
-
-                              // const SizedBox(
-                              //
-                              //   width: 2,
-                              //
-                              // ),
-
                               const Padding(
                                 padding: EdgeInsets.only(top: 10.0),
                                 child: CustomText(
@@ -217,7 +202,6 @@ Widget middleColumnForDesktopScreen() => Expanded(
 
 // icon:const Icon(FontAwesomeIcons.houseUser) ,
                               ),
-
                               const Padding(
                                 padding: EdgeInsets.only(top: 10.0),
                                 child: CustomText(

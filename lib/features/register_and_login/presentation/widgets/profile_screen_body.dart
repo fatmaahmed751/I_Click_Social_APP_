@@ -45,7 +45,8 @@ class ProfileScreenBody extends StatelessWidget {
       ),
              const IconsOfProfileRow(),
       const SizedBox(height: 20,),
-      gridViewWidget()
+      Container(
+          height:MediaQuery.sizeOf(context).height,child: gridViewWidget())
 
             ],
           ),

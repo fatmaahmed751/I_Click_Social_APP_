@@ -78,19 +78,20 @@ Widget middleColumnForTabletScreen() => Expanded(
               const SizedBox(
                 height: 7,
               ),
+              const SizedBox(
+                height: 15,
+              ),
               SizedBox(
-                height: 200,
+                height:200,
                 child: ListView.separated(
+                 // physics: const ClampingScrollPhysics(),
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => containerOfStory(),
+                  itemBuilder: (context, index) => IntrinsicHeight(child: containerOfStory()),
                   itemCount: 6,
                   separatorBuilder: (context, index) =>
                       const SizedBox(width: 5),
                 ),
-              ),
-              const SizedBox(
-                height: 15,
               ),
               Card(
                 color: Colors.black54,
@@ -144,104 +145,102 @@ Widget middleColumnForTabletScreen() => Expanded(
                     ),
                     Container(
                       height: 70,
-                      padding: const EdgeInsets.only(left: 5),
+                      padding: const EdgeInsets.only(right:3, left:5),
                       child: Row(
-                       crossAxisAlignment: CrossAxisAlignment.center,
-                       // mainAxisAlignment:
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+// crossAxisAlignment: CrossAxisAlignment.baseline,
 
                         children: [
-                          IconButton(
-                            onPressed: () {},
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
 
-                            icon: const GradientIcon(
-                              icon: Icons.video_camera_back,
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.deepOrangeAccent,
-                                  Colors.purple
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
+                                icon: const GradientIcon(
+                                  icon: Icons.video_camera_back,
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.deepOrangeAccent,
+                                      Colors.purple
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  size: 25,
+                                ),
+
+// icon:const Icon(FontAwesomeIcons.houseUser) ,
                               ),
-                              size: 28,
-                            ),
-
-                            // icon:const Icon(FontAwesomeIcons.houseUser) ,
-                          ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 8.0),
-                            child: CustomText(
-                                text: 'Live video',
-                                color: AppColors.containerColor,
-                                size: 15,
-                                fontWeight: FontWeight.w200),
-                          ),
-                          const SizedBox(
-                            width: 7,
-                          ),
-                          IconButton(
-                            onPressed: () {},
-
-                            icon: const GradientIcon(
-                              icon: Icons.add_photo_alternate_outlined,
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.deepOrangeAccent,
-                                  Colors.purple
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
+                              const Padding(
+                                padding: EdgeInsets.only(top: 8.0),
+                                child: CustomText(
+                                    text: 'Live video',
+                                    color: AppColors.containerColor,
+                                    size: 15,
+                                    fontWeight: FontWeight.w200),
                               ),
-                              size: 28,
-                            ),
+                            ],
+                          ),
 
-                            // icon:const Icon(FontAwesomeIcons.houseUser) ,
-                          ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: CustomText(
-                                text: 'Photo/video',
-                                color: AppColors.containerColor,
-                                size: 15,
-                                fontWeight: FontWeight.w200),
-                          ),
-                          const SizedBox(
-                            width: 7,
-                          ),
-                          IconButton(
-                            onPressed: () {},
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
 
-                            icon: const GradientIcon(
-                              icon: Icons.emoji_emotions_outlined,
-                              gradient: LinearGradient(
-                                colors: [
-                                  Colors.deepOrangeAccent,
-                                  Colors.purple
-                                ],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
+                                icon: const GradientIcon(
+                                  icon: Icons.add_photo_alternate_outlined,
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.deepOrangeAccent,
+                                      Colors.purple
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  size: 25,
+                                ),
+
+// icon:const Icon(FontAwesomeIcons.houseUser) ,
                               ),
-                              size: 28,
-                            ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 10.0),
+                                child: CustomText(
+                                    text: 'Photo/video',
+                                    color: AppColors.containerColor,
+                                    size: 15,
+                                    fontWeight: FontWeight.w200),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
 
-                            // icon:const Icon(FontAwesomeIcons.houseUser) ,
-                          ),
-                          const SizedBox(
-                            width: 2,
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 10.0),
-                            child: CustomText(
-                                text: 'Feeling/activity',
-                                color: AppColors.containerColor,
-                                size: 15,
-                                fontWeight: FontWeight.w200),
+                                icon: const GradientIcon(
+                                  icon: Icons.emoji_emotions_outlined,
+                                  gradient: LinearGradient(
+                                    colors: [
+                                      Colors.deepOrangeAccent,
+                                      Colors.purple
+                                    ],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  size: 25,
+                                ),
+
+// icon:const Icon(FontAwesomeIcons.houseUser) ,
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(top: 10.0),
+                                child: CustomText(
+                                    text: 'Feeling/activity',
+                                    color: AppColors.containerColor,
+                                    size: 15,
+                                    fontWeight: FontWeight.w200),
+                              ),
+                            ],
                           ),
                         ],
                       ),

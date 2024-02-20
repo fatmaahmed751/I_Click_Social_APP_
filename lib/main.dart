@@ -4,6 +4,7 @@
 import 'package:desktop_window/desktop_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_click/features/register_and_login/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:i_click/general/screens/splash_screen.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 //import 'package:responsive_framework/responsive_framework.dart';
@@ -35,45 +36,54 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  BlocProvider(
-      create: ( context)=> HomeCubit(),
-
-      child: MaterialApp(
-        theme: ThemeData(
-        //  scaffoldBackgroundColor:Colors.black54
-          //AppColors.backgroundColor,
+    return  MultiBlocProvider(
+      providers: [
+        BlocProvider(
+        create: ( context)=> HomeCubit(),
         ),
-          // builder: (context, child) => ResponsiveBreakpoints.builder(
-          //   child: child!,
-          //   breakpoints: [
-          //     const Breakpoint(start: 0, end: 450, name: MOBILE),
-          //     const Breakpoint(start: 451, end: 650, name: TABLET),
-          //     const Breakpoint(start: 320, end:500, name: DESKTOP),
-          //     const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-          //   ],
-          // ),
-          debugShowCheckedModeBanner: false,
-          // theme: ThemeData.dark().copyWith(
-          //   scaffoldBackgroundColor: Colors.black,
-          // ),
-          home:
-          // import the package
+        BlocProvider(
+          create: ( context)=> UserLoginCubit(),
+        ),
+      ],
 
-      ScreenTypeLayout.builder(
-      breakpoints: const ScreenBreakpoints(
-      tablet: 700,
-          desktop: 1000,
-          watch: 300
-      ),
-      mobile:(context)=>
-      const BottomNavWidget(),
-      //(context)=>Container(color:Colors.blue),
-      tablet:(context)=>  const TabletScreen(),
-      desktop:(context)=>const DeskTopScreen(),
-      watch: (context)=>Container(color: Colors.purple),
-      )
-      ),
-    );
+
+        child: MaterialApp(
+          theme: ThemeData(
+          //  scaffoldBackgroundColor:Colors.black54
+            //AppColors.backgroundColor,
+          ),
+            // builder: (context, child) => ResponsiveBreakpoints.builder(
+            //   child: child!,
+            //   breakpoints: [
+            //     const Breakpoint(start: 0, end: 450, name: MOBILE),
+            //     const Breakpoint(start: 451, end: 650, name: TABLET),
+            //     const Breakpoint(start: 320, end:500, name: DESKTOP),
+            //     const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+            //   ],
+            // ),
+            debugShowCheckedModeBanner: false,
+            // theme: ThemeData.dark().copyWith(
+            //   scaffoldBackgroundColor: Colors.black,
+            // ),
+            home:
+            // import the package
+
+        ScreenTypeLayout.builder(
+        breakpoints: const ScreenBreakpoints(
+        tablet: 700,
+            desktop: 1000,
+            watch: 300
+        ),
+        mobile:(context)=>
+        const BottomNavWidget(),
+        //(context)=>Container(color:Colors.blue),
+        tablet:(context)=>  const TabletScreen(),
+        desktop:(context)=>const DeskTopScreen(),
+        watch: (context)=>Container(color: Colors.purple),
+        )
+        ),
+      );
+
 
    // );
   }
