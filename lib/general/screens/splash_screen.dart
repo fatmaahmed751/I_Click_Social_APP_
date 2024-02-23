@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import '../../core/components/componenets.dart';
-import '../../features/register_and_login/presentation/screens/login_screen.dart';
+import '../../features/register_and_login/presentation/view/login_screen.dart';
 import '../widgets/splash_view_body.dart';
 
 class SplashScreen extends StatefulWidget {

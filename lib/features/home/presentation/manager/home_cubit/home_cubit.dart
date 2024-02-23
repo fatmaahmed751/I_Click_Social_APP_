@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_click/features/register_and_login/presentation/view/profile_screen.dart';
 
 import '../../../../chat_room/presentation/view/chat_rooms.dart';
 import '../../../../market_place/presentation/view/products_screen.dart';
-import '../../../../register_and_login/presentation/screens/profile_screen.dart';
 import '../../../../stories_room/presentation/view/stories_screen.dart';
 import '../../view/categories_screen.dart';
-import '../../view/home_screen.dart';
+
 import 'home_states.dart';
 
 class HomeCubit extends Cubit<HomeAppStates> {

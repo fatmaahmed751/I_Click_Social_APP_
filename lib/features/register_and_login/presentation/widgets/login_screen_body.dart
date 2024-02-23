@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:i_click/features/register_and_login/presentation/manager/login_cubit/login_cubit.dart';
 import 'package:i_click/features/register_and_login/presentation/manager/login_cubit/login_states.dart';
@@ -8,8 +7,9 @@ import 'package:i_click/features/register_and_login/presentation/manager/login_c
 import '../../../../core/components/componenets.dart';
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
-import '../screens/login_screen.dart';
-import '../screens/register_screen.dart';
+import '../view/register_screen.dart';
+
+
 
 class LoginScreenBody extends StatelessWidget {
   const LoginScreenBody({
