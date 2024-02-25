@@ -6,10 +6,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController passwordController = TextEditingController();
-    TextEditingController emailController = TextEditingController();
 
-    return LoginScreenBody(emailController: emailController, passwordController: passwordController);
+    return const LoginScreenBody();
   }
 }
 

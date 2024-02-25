@@ -1,8 +1,19 @@
 class UserLoginModel{
-  final String password;
-  final String email;
+  late String password;
+  late String email;
 
 
-  UserLoginModel(this.password, this.email);
+  UserLoginModel({
+    this.email ='',
+    this.password = ''
+});
+factory UserLoginModel.formJson(Map<String, dynamic>json){
+  return UserLoginModel(
+
+    email:json['email'],
+password: json['password']
+  );
+}
+
 
 }

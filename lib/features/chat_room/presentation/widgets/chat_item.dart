@@ -22,12 +22,12 @@ size:14,
             color: AppColors.containerColor,),
           Row(
             children: [
-              const Expanded(
+              const IntrinsicWidth(
                 child: CustomText(text:'Ahmed Badry',
                   size:12,
                   color: AppColors.containerColor,),
               ),
-              const SizedBox(width:1,),
+              const SizedBox(width:5,),
               Container(
                 decoration: BoxDecoration(
                     color: Colors.white38,
@@ -37,8 +37,8 @@ size:14,
                 width:3,
 
               ),
-              const SizedBox(width: 2,),
-              CustomText(
+              const SizedBox(width:5,),
+              const CustomText(
                 text:'11',
                 //now.toLocal().toString(),
                 color: Colors.white38,

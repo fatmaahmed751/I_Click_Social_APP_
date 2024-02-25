@@ -29,7 +29,7 @@ Widget defaultFormField(
          // fillColor: AppColors.backgroundColor,
           filled: true,
           border: UnderlineInputBorder(
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               color: Colors.red, // Change the color as needed
               width: 8.0,
               // Change the width as needed
@@ -52,7 +52,7 @@ Widget defaultFormField(
               color: AppColors.containerTextColor, fontSize: 15),
           labelText: labelText,
           labelStyle:
-              TextStyle(fontSize:20, color: AppColors.containerTextColor),
+              const TextStyle(fontSize:20, color: AppColors.containerTextColor),
           contentPadding: const EdgeInsets.only(left: 25),
         ),
       ),

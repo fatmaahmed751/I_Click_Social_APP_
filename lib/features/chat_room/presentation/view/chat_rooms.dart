@@ -4,6 +4,7 @@ import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/circle_avatar.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../../../../general/widgets/search_widget.dart';
+import '../widgets/chat_dialouge.dart';
 import '../widgets/chat_item.dart';
 
 class ChatRoomsScreen extends StatelessWidget {
@@ -69,7 +70,11 @@ class ChatRoomsScreen extends StatelessWidget {
                   child: ListView.separated(
                     shrinkWrap: true,
                     //scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => containerOfChat(now),
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: (){
+                        chatBubbles(context);
+                      },
+                        child: containerOfChat(now)),
                     itemCount: 6,
                     separatorBuilder: (context, index) =>
                     const SizedBox(height: 9),

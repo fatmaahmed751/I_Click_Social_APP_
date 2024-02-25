@@ -3,10 +3,6 @@ import 'package:gradient_icon/gradient_icon.dart';
 
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/app_bar_widget.dart';
-import '../../../../general/widgets/search_widget.dart';
-import '../../../tablet/presentation/widgets/drawer_widget_for_tablet_screen.dart';
-import '../../../tablet/presentation/widgets/last_column_for_tablet_screen.dart';
-import '../../../tablet/presentation/widgets/middle_column_for_tablet_screen.dart';
 import '../widgets/first_column_for_desktop_screen.dart';
 import '../widgets/last_column_for_desktop_screen.dart';
 import '../widgets/middle_column_for_desktop_screen.dart';

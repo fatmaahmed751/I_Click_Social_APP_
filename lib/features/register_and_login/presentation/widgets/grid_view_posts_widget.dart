@@ -2,50 +2,88 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/components/constants.dart';
 
-Widget gridViewWidget() => GridView.builder(
- shrinkWrap: true,
-  //physics:const NeverScrollableScrollPhysics(),
-  //scrollDirection: Axis.vertical,
-  itemCount: 26,
-  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 3,
+Widget gridViewWidget(context) => Container(
+  height: MediaQuery.sizeOf(context).height,
+  child:   GridView.builder(
 
-    //mainAxisExtent: 4,
+   shrinkWrap: true,
 
-    //mainAxisSpacing:0.5,
+    //physics:const NeverScrollableScrollPhysics(),
 
-    childAspectRatio: 17.65 / 18.6,
+    //scrollDirection: Axis.vertical,
 
-    crossAxisSpacing: 1.0,
-  ),
-  itemBuilder: (context, index) => SizedBox(
+    itemCount: 26,
 
-    width: 150,
+    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
 
-    height: 100,
+      crossAxisCount: 3,
 
-    child: Stack(
-      alignment: Alignment.topRight,
-      children: [
-        FittedBox(
-          fit: BoxFit.cover,
-          child: Image.network(
-            'https://i.pinimg.com/564x/bb/1b/57/bb1b574f144015df982dc80634536426.jpg',
+      childAspectRatio: 17.65 / 18.6,
+
+
+
+      crossAxisSpacing: 1.0,
+
+    ),
+
+    itemBuilder: (context, index) => SizedBox(
+
+
+
+      width: 150,
+
+
+
+      height: 100,
+
+
+
+      child: Stack(
+
+        alignment: Alignment.topRight,
+
+        children: [
+
+          FittedBox(
 
             fit: BoxFit.cover,
 
+            child: Image.network(
+
+              'https://i.pinimg.com/564x/bb/1b/57/bb1b574f144015df982dc80634536426.jpg',
+
+
+
+              fit: BoxFit.cover,
+
+
+
+            ),
+
           ),
-        ),
-        const Padding(
-          padding: EdgeInsets.only(right: 4.0, top: 3),
-          child: Icon(
-            Icons.camera_enhance_outlined,
-            color: AppColors.containerColor,
-            size: 17,
+
+          const Padding(
+
+            padding: EdgeInsets.only(right: 4.0, top: 3),
+
+            child: Icon(
+
+              Icons.camera_enhance_outlined,
+
+              color: AppColors.containerColor,
+
+              size: 17,
+
+            ),
+
           ),
-        ),
-      ],
+
+        ],
+
+      ),
+
     ),
+
   ),
 );
 // class CustomSliverGrid extends StatelessWidget{

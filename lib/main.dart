@@ -1,22 +1,41 @@
 import 'package:desktop_window/desktop_window.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_click/features/register_and_login/presentation/manager/login_cubit/login_cubit.dart';
+import 'package:i_click/general/screens/splash_screen.dart';
 
 import 'package:responsive_builder/responsive_builder.dart';
 
+import 'core/utils/bloc_observer.dart';
 import 'features/desktop/presentation/views/desktop_screen.dart';
 import 'features/home/presentation/manager/home_cubit/home_cubit.dart';
 
-import 'features/home/presentation/widgets/bottom_nav_and_tabBar.dart';
 
-import 'features/register_and_login/data/repos/login_and_register_repo.dart';
+import 'features/register_and_login/data/repos/login_and_register_repo_impl.dart';
+import 'features/register_and_login/presentation/manager_view_model/login_cubit/login_cubit.dart';
+import 'features/register_and_login/presentation/manager_view_model/register_cubit/register_cubit.dart';
 import 'features/tablet/presentation/view/tablet_screen.dart';
+import 'firebase_options.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await DesktopWindow.setMinWindowSize(const Size(350, 300));
 
+
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(
+  //  // options: DefaultFirebaseOptions.currentPlatform,
+  //   options: DefaultFirebaseOptions.web,
+  // );
+  await Firebase.initializeApp(
+// Replace with actual values
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyDlcbJA3Fyko6ByQ4SYHNWmmNSThyQ6yrU",
+        appId: "1:296340636091:web:235f4c6fb5b7df463c449e",
+        messagingSenderId: "296340636091",
+        projectId: "i-click-app-d0f07",
+      )
+      );
+  await DesktopWindow.setMinWindowSize(const Size(350, 300));
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -26,14 +45,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    LoginAndRegisterRepo? loginAndRegisterRepo;
+  //final LoginAndRegisterRepoImplement  loginAndRegisterRepoImplement;
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (context) => HomeCubit(),
         ),
         BlocProvider(
-          create: (context) => UserLoginCubit(loginAndRegisterRepo!),
+          create: (context) => UserLoginCubit(LoginAndRegisterRepoImplement()),
+        ),
+        BlocProvider(
+          create: (context) => UserRegisterCubit(LoginAndRegisterRepoImplement()),
         ),
       ],
       child: MaterialApp(
@@ -60,7 +82,7 @@ class MyApp extends StatelessWidget {
               ScreenTypeLayout.builder(
             breakpoints:
                 const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
-            mobile: (context) => const BottomNavWidget(),
+            mobile: (context) => const SplashScreen(),
             //(context)=>Container(color:Colors.blue),
             tablet: (context) => const TabletScreen(),
             desktop: (context) => const DeskTopScreen(),

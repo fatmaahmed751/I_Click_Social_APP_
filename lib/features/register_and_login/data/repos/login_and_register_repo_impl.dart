@@ -30,10 +30,15 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
   ));
   } else {
   return Left(ServerFailure(e.toString(), errorMessage: e.toString()));
+
   }
   } catch (e) {
   return Left(ServerFailure(e.toString(), errorMessage: e.toString()));
+
+
   }
+
+
   }
 
   @override

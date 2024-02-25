@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:gradient_icon/gradient_icon.dart';
 import 'package:i_click/core/components/constants.dart';
 import 'package:i_click/general/widgets/custom-text.dart';
 
-import '../../../../core/components/componenets.dart';
 import '../../../../general/widgets/search_widget.dart';
-import '../widgets/bottom_nav_and_tabBar.dart';
 import '../widgets/container_of_story.dart';
-import '../widgets/grid_view_widget.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -63,25 +58,28 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       ),
 
                       const SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
-                      const Row(
-                        children: [
-                          CustomText(
-                            text: 'Discover',
-                            color: AppColors.categoryTextColor,
-                            size: 20,
-                          ),
-                          Spacer(),
-                          CustomText(
-                            text: 'View All',
-                            color: AppColors.deepOrangeColor,
-                            size: 14,
-                          )
-                        ],
+                      const Padding(
+                        padding: EdgeInsets.only(left: 5.0),
+                        child: Row(
+                          children: [
+                            CustomText(
+                              text: 'Discover',
+                              color: AppColors.categoryTextColor,
+                              size: 20,
+                            ),
+                            Spacer(),
+                            CustomText(
+                              text: 'View All',
+                              color: AppColors.deepOrangeColor,
+                              size: 14,
+                            )
+                          ],
+                        ),
                       ),
                       const SizedBox(
-                        height: 8,
+                        height:13,
                       ),
                       Container(
                         //  color: Colors.red,
@@ -95,7 +93,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               const SizedBox(width: 7),
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 15),
                       Container(
                           decoration:   BoxDecoration(
                             color: AppColors.backgroundColor,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:i_click/general/widgets/search_bar_for_desktop_screen.dart';
-import 'package:i_click/general/widgets/search_widget.dart';
 
 import '../../core/components/constants.dart';
 
