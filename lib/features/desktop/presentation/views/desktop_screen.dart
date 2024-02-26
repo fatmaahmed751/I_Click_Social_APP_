@@ -94,7 +94,7 @@ class DeskTopScreen extends StatelessWidget {
 // // thickness: 0.3,
 //               color: AppColors.containerTextColor,
 //             ),
-              DrawerForFirstColumnDesktop(),
+              const DrawerForFirstColumnDesktop(),
               middleColumnForDesktopScreen(),
               lastColumnForDesktopScreen()
             ],

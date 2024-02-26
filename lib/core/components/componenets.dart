@@ -15,6 +15,9 @@ Widget defaultFormField(
     Padding(
       padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
       child: TextFormField(
+        style: const TextStyle(
+            color: AppColors.containerTextColor
+        ),
         obscureText: obscureText,
         onChanged: onChanged,
         textAlign: TextAlign.justify,

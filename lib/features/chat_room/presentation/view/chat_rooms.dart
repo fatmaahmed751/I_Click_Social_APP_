@@ -6,6 +6,7 @@ import '../../../../general/widgets/custom-text.dart';
 import '../../../../general/widgets/search_widget.dart';
 import '../widgets/chat_dialouge.dart';
 import '../widgets/chat_item.dart';
+import '../widgets/chat_messages.dart';
 
 class ChatRoomsScreen extends StatelessWidget {
   const ChatRoomsScreen({super.key});
