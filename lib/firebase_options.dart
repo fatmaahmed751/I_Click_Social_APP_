@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '296340636091',
     projectId: 'i-click-app-d0f07',
     authDomain: 'i-click-app-d0f07.firebaseapp.com',
+    databaseURL: 'https://i-click-app-d0f07-default-rtdb.firebaseio.com',
     storageBucket: 'i-click-app-d0f07.appspot.com',
     measurementId: 'G-VNG6Z3BHX9',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:296340636091:android:a196e5ebe17b0e153c449e',
     messagingSenderId: '296340636091',
     projectId: 'i-click-app-d0f07',
+    databaseURL: 'https://i-click-app-d0f07-default-rtdb.firebaseio.com',
     storageBucket: 'i-click-app-d0f07.appspot.com',
   );
 
@@ -66,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:296340636091:ios:c98c2879eb1be89e3c449e',
     messagingSenderId: '296340636091',
     projectId: 'i-click-app-d0f07',
+    databaseURL: 'https://i-click-app-d0f07-default-rtdb.firebaseio.com',
     storageBucket: 'i-click-app-d0f07.appspot.com',
     iosBundleId: 'com.example.iClick',
   );
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:296340636091:ios:b0957dbecd1ef3f23c449e',
     messagingSenderId: '296340636091',
     projectId: 'i-click-app-d0f07',
+    databaseURL: 'https://i-click-app-d0f07-default-rtdb.firebaseio.com',
     storageBucket: 'i-click-app-d0f07.appspot.com',
     iosBundleId: 'com.example.iClick.RunnerTests',
   );

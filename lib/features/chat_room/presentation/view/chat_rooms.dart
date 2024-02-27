@@ -4,7 +4,7 @@ import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/circle_avatar.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../../../../general/widgets/search_widget.dart';
-import '../widgets/chat_dialouge.dart';
+import '../widgets/chat_bubble.dart';
 import '../widgets/chat_item.dart';
 import '../widgets/chat_messages.dart';
 

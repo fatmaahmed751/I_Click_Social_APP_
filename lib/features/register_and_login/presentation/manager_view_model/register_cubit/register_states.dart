@@ -11,3 +11,5 @@ class UserRegisterErrorState extends UserRegisterStates{
 
   UserRegisterErrorState(this.errorMessage);
 }
+
+class UserCreateSuccessState extends UserRegisterStates{}

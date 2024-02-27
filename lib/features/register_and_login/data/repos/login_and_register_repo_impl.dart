@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -35,9 +36,7 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
   } catch (e) {
   return Left(ServerFailure(e.toString(), errorMessage: e.toString()));
 
-
   }
-
 
   }
 
@@ -49,7 +48,14 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
       await auth.createUserWithEmailAndPassword(
           email: userRegisterModel.email,
           password: userRegisterModel.password);
+      saveUserData(
+          uId: auth.currentUser!.uid,
+          name: userRegisterModel.name,
+          email: userRegisterModel.email,
+         image: userRegisterModel.image
+      );
       return Right(userRegisterModel);
+
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         return Left( ServerFailure(e.toString(),errorMessage: 'The password provided is too weak.'));
@@ -64,5 +70,33 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
       return Left(ServerFailure(e.toString(), errorMessage: e.toString()));
     }
   }
+
+  @override
+
+
+   Future<UserRegisterModel> saveUserData({
+     required String uId,
+    required String name,
+    required String image,
+    required String email,
+  }) async {
+    UserRegisterModel userRegisterModel = UserRegisterModel(
+        name: name,
+        uId: uId,
+image:image,
+        email:email
+    );
+    await FirebaseFirestore.instance.collection('users').
+    doc(uId).
+    set(userRegisterModel.toMap()).then((value) {
+      print(uId);
+     // emit(UserCreateSuccessState());
+    }).catchError((e) {
+      // emit(AppCreateErrorState());
+      print(e.toString());
+    });
+    return userRegisterModel;
+  }
+
 
 }

@@ -11,3 +11,13 @@ class ChatErrorState extends ChatStates{
 
   ChatErrorState(this.errorMessage);
 }
+
+class GetMessagesSuccessState extends ChatStates{}
+
+class GetMessagesLoadingState extends ChatStates{}
+
+class GetMessagesErrorState extends ChatStates{
+ // final String errorMessage;
+
+  GetMessagesErrorState();
+}
