@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_click/features/stories_room/presentation/widgets/profile_widget.dart';
 import 'package:i_click/features/stories_room/presentation/widgets/story_of_user.dart';
 
 import 'package:story_view/story_view.dart';
@@ -105,10 +106,10 @@ class StoryWidgetState extends State<StoryWidget> {
           },
         ),
       ),
-      // ProfileWidget(
-      //   user: widget.user,
-      //   date: date,
-      // ),
+      ProfileWidget(
+        user: widget.user,
+        date: date,
+      ),
     ],
   );
 }

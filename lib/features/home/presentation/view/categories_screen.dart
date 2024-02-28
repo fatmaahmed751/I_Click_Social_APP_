@@ -87,7 +87,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         child: ListView.separated(
                          shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => containerOfStory(storyUsers[index],context),
+                          itemBuilder: (context, index) => containerOfStory(storyUsers[index],context,index),
                           itemCount: storyUsers.length,
                           separatorBuilder: (context, index) =>
                               const SizedBox(width: 7),

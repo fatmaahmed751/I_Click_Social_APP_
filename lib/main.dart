@@ -22,32 +22,32 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp(
-// options: DefaultFirebaseOptions.currentPlatform,
-
-   //   );
   await Firebase.initializeApp(
-// Replace with actual values
-      options: const FirebaseOptions(
-        apiKey: "AIzaSyDlcbJA3Fyko6ByQ4SYHNWmmNSThyQ6yrU",
-        appId: "1:296340636091:web:235f4c6fb5b7df463c449e",
-        messagingSenderId: "296340636091",
-        projectId: "i-click-app-d0f07",
-      )
-     );
-  //await DesktopWindow.setMinWindowSize(const Size(350, 300));
+    options: DefaultFirebaseOptions.android,
+  );
+//   await Firebase.initializeApp(
+// // Replace with actual values
+//       options: const FirebaseOptions(
+//         apiKey: "AIzaSyDlcbJA3Fyko6ByQ4SYHNWmmNSThyQ6yrU",
+//         appId: "1:296340636091:web:235f4c6fb5b7df463c449e",
+//         messagingSenderId: "296340636091",
+//         projectId: "i-click-app-d0f07",
+//       )
+//      );
+  await DesktopWindow.setMinWindowSize(const Size(350, 600));
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
+
 class MyCustomScrollBehavior extends MaterialScrollBehavior {
   // Override behavior methods and getters like dragDevices
   @override
-  Set<PointerDeviceKind> get dragDevices =>
-      {
+  Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,
         PointerDeviceKind.mouse,
       };
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -73,31 +73,20 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           theme: ThemeData(),
-    //scrollBehavior: MyCustomScrollBehavior(),
-          // builder: (context, child) => ResponsiveBreakpoints.builder(
-          //   child: child!,
-          //   breakpoints: [
-          //     const Breakpoint(start: 0, end: 450, name: MOBILE),
-          //     const Breakpoint(start: 451, end: 650, name: TABLET),
-          //     const Breakpoint(start: 320, end:500, name: DESKTOP),
-          //     const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-          //   ],
-          // ),
+        scrollBehavior: MyCustomScrollBehavior(),
+
           debugShowCheckedModeBanner: false,
           // theme: ThemeData.dark().copyWith(
           //   scaffoldBackgroundColor: Colors.black,
           // ),
           home:
-              // import the package
-
               ScreenTypeLayout.builder(
             breakpoints:
                 const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
-            mobile: (context) => const SplashScreen(),
-            //(context)=>Container(color:Colors.blue),
-            tablet: (context) => const TabletScreen(),
-            desktop: (context) => const DeskTopScreen(),
-            watch: (context) => Container(color: Colors.purple),
+               mobile: (context) => const SplashScreen(),
+                tablet: (context) => const TabletScreen(),
+                desktop: (context) => const DeskTopScreen(),
+               watch: (context) => Container(color: Colors.purple),
           )),
     );
 
