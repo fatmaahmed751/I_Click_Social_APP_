@@ -14,14 +14,14 @@ class UserRegisterCubit extends Cubit<UserRegisterStates>{
 
   final LoginAndRegisterRepo loginAndRegisterRepo;
 
-  Future<void> getUserData(UserRegisterModel userRegisterModel) async{
-    emit(UserRegisterLoadingState());
-   var result =
-   await loginAndRegisterRepo.fetchUserRegisterData(userRegisterModel);
-   result.fold((serverFailure) =>
-       emit(UserRegisterErrorState(serverFailure.errMessage)),
-           (userRegisterModel) =>
-               emit(UserRegisterSuccessState()));
+  // Future<void> getUserData(UserRegisterModel userRegisterModel) async{
+  //   emit(UserRegisterLoadingState());
+  //  var result =
+  //  await loginAndRegisterRepo.fetchUserRegisterData(userRegisterModel);
+  //  result.fold((serverFailure) =>
+  //      emit(UserRegisterErrorState(serverFailure.errMessage)),
+  //          (userRegisterModel) =>
+  //              emit(UserRegisterSuccessState()));
 
-  }
+  //}
 }

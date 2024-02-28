@@ -81,18 +81,18 @@ Widget middleColumnForTabletScreen() => Expanded(
               const SizedBox(
                 height: 15,
               ),
-              SizedBox(
-                height:200,
-                child: ListView.separated(
-                 // physics: const ClampingScrollPhysics(),
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => IntrinsicHeight(child: containerOfStory()),
-                  itemCount: 6,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(width: 5),
-                ),
-              ),
+              // SizedBox(
+              //   height:200,
+              //   child: ListView.separated(
+              //    // physics: const ClampingScrollPhysics(),
+              //     shrinkWrap: true,
+              //     scrollDirection: Axis.horizontal,
+              //     itemBuilder: (context, index) => IntrinsicHeight(child: containerOfStory()),
+              //     itemCount: 6,
+              //     separatorBuilder: (context, index) =>
+              //         const SizedBox(width: 5),
+              //   ),
+              // ),
               Card(
                 color: Colors.black54,
                 child: Column(

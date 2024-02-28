@@ -10,26 +10,26 @@ class ChatCubit extends Cubit<ChatStates>{
   final ChatRepo chatRepo;
   static ChatCubit get(context)=>BlocProvider.of(context);
 
-  Future<void> addMessageToChat(ChatModel chatModel)async{
-    emit(ChatLoadingState());
-    var result =  await chatRepo.addMessageToChat(chatModel);
-    result.fold((serverFailure) =>
-        emit(ChatErrorState(serverFailure.errMessage.toString())),
-      (chatModel) =>
-        emit(ChatSuccessState()));
-  }
+  // Future<void> addMessageToChat(ChatModel chatModel)async{
+  //   emit(ChatLoadingState());
+  //   var result =  await chatRepo.addMessageToChat(chatModel);
+  //   result.fold((serverFailure) =>
+  //       emit(ChatErrorState(serverFailure.errMessage.toString())),
+  //     (chatModel) =>
+  //       emit(ChatSuccessState()));
+  // }
 
-  Future<ChatModel> getMessageFromDta(ChatModel chatModel,context)async{
-    emit(GetMessagesLoadingState());
-
-    var result =  await chatRepo.getMessages(chatModel,context);
-    if(result.hashCode == 200){
-      emit(GetMessagesSuccessState());
-    }else{
-        emit(GetMessagesErrorState());
-            }
-
-    return chatModel;
-  }
+  // Future<ChatModel> getMessageFromDta(ChatModel chatModel,context)async{
+  //   emit(GetMessagesLoadingState());
+  //
+  //   var result =  await chatRepo.getMessages(chatModel,context);
+  //   if(result.hashCode == 200){
+  //     emit(GetMessagesSuccessState());
+  //   }else{
+  //       emit(GetMessagesErrorState());
+  //           }
+  //
+  //   return chatModel;
+  // }
 
 }

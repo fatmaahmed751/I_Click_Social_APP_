@@ -128,7 +128,7 @@ UserLoginModel? model;
                               password: passwordController.text,
 
                             );
-                            cubit.getUserData(model!);
+                           // cubit.getUserData(model!);
                             //cubit.getUserData(registerModel!);
                             print(model!.email);
                             navigationByScreens(context, const BottomNavWidget());

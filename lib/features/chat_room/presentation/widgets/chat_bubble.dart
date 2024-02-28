@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradient_icon/gradient_icon.dart';
@@ -103,7 +103,7 @@ Future chatBubbles(context) => showDialog(
                   const SizedBox(
                     height: 2,
                   ),
-                  ChatMessages(),
+                  //ChatMessages(),
                   Card(
                     elevation: 0,
                     clipBehavior: Clip.hardEdge,
@@ -116,7 +116,7 @@ Future chatBubbles(context) => showDialog(
                         // });
                      ChatModel chatModel = ChatModel( data.toString()
                      );
-                     cubit.addMessageToChat(chatModel);
+                     //cubit.addMessageToChat(chatModel);
                      controller.clear();
                       },
                       style: const TextStyle(color: AppColors.containerTextColor),

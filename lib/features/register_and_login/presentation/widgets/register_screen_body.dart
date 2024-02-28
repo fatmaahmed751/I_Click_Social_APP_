@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,7 +26,7 @@ class RegisterScreenBody extends StatefulWidget {
 class _RegisterScreenBodyState extends State<RegisterScreenBody> {
   GlobalKey<FormState>  formKey = GlobalKey();
 
-  FirebaseAuth auth = FirebaseAuth.instance;
+//  FirebaseAuth auth = FirebaseAuth.instance;
 
   UserRegisterModel? registerModel;
  TextEditingController emailController = TextEditingController();
@@ -128,7 +128,7 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
                         password: passwordController.text,
                         name:nameController.text,
                       );
-                      cubit.getUserData(registerModel!);
+                     // cubit.getUserData(registerModel!);
                       //cubit.getUserData(registerModel!);
                       print(registerModel!.email);
                       navigationByScreens(context, const BottomNavWidget());

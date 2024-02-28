@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:i_click/core/components/constants.dart';
 import 'package:i_click/general/widgets/custom-text.dart';
+import 'package:story_view/widgets/story_view.dart';
 
 import '../../../../general/widgets/search_widget.dart';
 import '../widgets/container_of_story.dart';
@@ -13,7 +14,6 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-
 
   @override
   Widget build(BuildContext context) {
@@ -87,8 +87,8 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         child: ListView.separated(
                          shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) => containerOfStory(),
-                          itemCount: 6,
+                          itemBuilder: (context, index) => containerOfStory(storyUsers[index],context),
+                          itemCount: storyUsers.length,
                           separatorBuilder: (context, index) =>
                               const SizedBox(width: 7),
                         ),

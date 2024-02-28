@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:desktop_window/desktop_window.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -21,9 +23,9 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 //   await Firebase.initializeApp(
-// //options: DefaultFirebaseOptions.currentPlatform,
-//
-//       );
+// options: DefaultFirebaseOptions.currentPlatform,
+
+   //   );
   await Firebase.initializeApp(
 // Replace with actual values
       options: const FirebaseOptions(
@@ -33,11 +35,19 @@ void main() async {
         projectId: "i-click-app-d0f07",
       )
      );
-  await DesktopWindow.setMinWindowSize(const Size(350, 300));
+  //await DesktopWindow.setMinWindowSize(const Size(350, 300));
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
-
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices =>
+      {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -62,10 +72,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          theme: ThemeData(
-              //  scaffoldBackgroundColor:Colors.black54
-              //AppColors.backgroundColor,
-              ),
+          theme: ThemeData(),
+    //scrollBehavior: MyCustomScrollBehavior(),
           // builder: (context, child) => ResponsiveBreakpoints.builder(
           //   child: child!,
           //   breakpoints: [

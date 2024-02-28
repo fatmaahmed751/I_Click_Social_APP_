@@ -12,14 +12,14 @@ class UserLoginCubit extends Cubit<UserLoginStates>{
 
   final LoginAndRegisterRepo loginAndRegisterRepo;
 
-  Future<void> getUserData(UserLoginModel userLoginModel) async{
-    emit(UserLoginLoadingState());
-    var result =
-    await loginAndRegisterRepo.fetchUserLoginData(userLoginModel);
-    result.fold((serverFailure) =>
-        emit(UserLoginErrorState(serverFailure.errMessage.toString())),
-            (userLoginModel) =>
-            emit(UserLoginSuccessState()));
-
-  }
+  // Future<void> getUserData(UserLoginModel userLoginModel) async{
+  //   emit(UserLoginLoadingState());
+  //   var result =
+  //   await loginAndRegisterRepo.fetchUserLoginData(userLoginModel);
+  //   result.fold((serverFailure) =>
+  //       emit(UserLoginErrorState(serverFailure.errMessage.toString())),
+  //           (userLoginModel) =>
+  //           emit(UserLoginSuccessState()));
+  //
+  // }
 }

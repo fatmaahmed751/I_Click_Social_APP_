@@ -18,13 +18,6 @@ class BottomNavWidget extends StatelessWidget {
        return Scaffold(
          body: cubit.screens[cubit.currentIndex] ,
         bottomNavigationBar:
-        //ClipRRect(
-        //     borderRadius: const BorderRadius.only(
-        //     topLeft: Radius.circular(22.0),
-        // topRight: Radius.circular(22.0),
-        // ),
-        //
-        //   child:
           Container(
             decoration: const BoxDecoration(
                 color: AppColors.kPrimaryColor,
@@ -121,7 +114,7 @@ class BottomNavWidget extends StatelessWidget {
                          icon:IconButton(
                            onPressed: (){},
                            icon: const GradientIcon(
-                             icon: Icons.shop_2_sharp,
+                             icon: Icons.shop,
                              gradient: LinearGradient(
                                colors: [Colors.deepOrangeAccent, Colors.grey],
                                begin: Alignment.topLeft,
