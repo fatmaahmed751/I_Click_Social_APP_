@@ -4,6 +4,7 @@ import 'package:gradient_icon/gradient_icon.dart';
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../../../home/presentation/widgets/container_of_story.dart';
+import '../../../stories_room/presentation/widgets/story_show.dart';
 import '../../../tablet/presentation/widgets/card_of_new_news_tablet.dart';
 import '../../../tablet/presentation/widgets/container_for_reels_tablet.dart';
 import 'package:flutter/material.dart';
@@ -14,61 +15,68 @@ import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
 import "package:story_view/story_view.dart";
 
+Widget containerOfStory(UserStory userStory, context, int index) => Stack(
+    children: [
 
-
-
-
-
-
-
-Widget containerOfStory(UserStory userStory) => Stack(
-  //alignment: Alignment.bottomCenter,
-  children: [
-    Container(
-        width: 143,
-        height: 280,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          image:  DecorationImage(
-              image:AssetImage(userStory.profileImage)
-            // NetworkImage(
-            //     "https://img.freepik.com/free-photo/portrait-smiling-casual-woman_171337-11866.jpg?w=360&t=st=1706673586~exp=1706674186~hmac=54cff1d97260c9ffd965b8f8df8bdeb1f6b1efef4431341146e58ae67dd69978"),
+      for (int i = 0; i < userStory.storyItems.length; i++)
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => StoryPage(
+                      userStory: userStory,
+                    )));
+          },
+          child:
+          Container(
+            width: 138,
+            height: 222,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(
+                        userStory.storyItems[i].url) // Wrap in Image.network()
+                  // No image for text stories
+                )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: Image(
+                      image: AssetImage(userStory.profileImage)
+                    // ),
+                  ),
+                ),
+                const SizedBox(height: 28),
+                Padding(
+                  padding: const EdgeInsets.only(left: 22.0,top: 20),
+                  child: CustomText(
+                    text: userStory.name,
+                    color: AppColors.containerColor,
+                    textAlign: TextAlign.center,
+                    size: 15,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 80.0),
+                  child: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/images/svg_images/union.svg',
+                        height: 13,
+                        width: 20,
+                      )),
+                ),
+              ],
+            ),
           ),
-          //'https://img.freepik.com/premium-vector/cute-hijabi-girl-vector-illustration_228218-131.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph')),
-          //   'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph')),
-        )),
-    // child:
-    //  Image.network('https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph')),
-    Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        Padding(
-            padding: const EdgeInsets.only(left: 10.0, top: 4),
-            child: circlePicture(20, 22)),
-        const SizedBox(height: 90),
-        Padding(
-          padding: const EdgeInsets.only(left: 28.0),
-          child: CustomText(
-            text:userStory.name,
-            color: AppColors.containerColor,
-            textAlign: TextAlign.center,
-            size: 15,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 105.0),
-          child: IconButton(
-              onPressed: () {},
-              icon: SvgPicture.asset(
-                'assets/images/svg_images/union.svg',
-                height: 13,
-                width: 20,
-              )),
-        ),
-      ],
-    )
-  ],
+       ),
+    ],
+
 );
 
 
@@ -90,12 +98,13 @@ Widget middleColumnForDesktopScreen() => Expanded(
 // SizedBox(width: 15,),
 
               SizedBox(
-                height: 200,
+                height: 235,
                 child: ListView.separated(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => containerOfStory(storyUsers[index]),
-                  itemCount:storyUsers.length ,
+                  itemBuilder: (context, index) =>
+                      containerOfStory(storyUsers[index], index, index),
+                  itemCount: storyUsers.length,
                   separatorBuilder: (context, index) =>
                       const SizedBox(width: 5),
                 ),

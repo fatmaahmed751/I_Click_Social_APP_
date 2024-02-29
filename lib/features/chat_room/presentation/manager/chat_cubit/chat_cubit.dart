@@ -5,9 +5,9 @@ import 'package:i_click/features/chat_room/data/repos/chat_repo.dart';
 import 'package:i_click/features/chat_room/presentation/manager/chat_cubit/chat_states.dart';
 
 class ChatCubit extends Cubit<ChatStates>{
-  ChatCubit(this.chatRepo): super(ChatInitialState());
+  ChatCubit(): super(ChatInitialState());
 
-  final ChatRepo chatRepo;
+  //final ChatRepo chatRepo;
   static ChatCubit get(context)=>BlocProvider.of(context);
 
   // Future<void> addMessageToChat(ChatModel chatModel)async{

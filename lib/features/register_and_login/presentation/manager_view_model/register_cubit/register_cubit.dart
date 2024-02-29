@@ -8,11 +8,11 @@ import '../../../data/repos/login_and_register_repo.dart';
 
 class UserRegisterCubit extends Cubit<UserRegisterStates>{
 
-  UserRegisterCubit(this.loginAndRegisterRepo):super(UserRegisterInitialState());
+  UserRegisterCubit():super(UserRegisterInitialState());
 
   static UserRegisterCubit get(context)=>BlocProvider.of(context);
 
-  final LoginAndRegisterRepo loginAndRegisterRepo;
+ // final LoginAndRegisterRepo loginAndRegisterRepo;
 
   // Future<void> getUserData(UserRegisterModel userRegisterModel) async{
   //   emit(UserRegisterLoadingState());

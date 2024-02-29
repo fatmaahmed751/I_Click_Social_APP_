@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradient_icon/gradient_icon.dart';
 import 'package:i_click/core/components/constants.dart';
 import 'package:i_click/general/widgets/custom-text.dart';
 import 'package:story_view/widgets/story_view.dart';
@@ -83,14 +84,14 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       ),
                       Container(
                         //  color: Colors.red,
-                        height: 200,
+                        height: 220,
                         child: ListView.separated(
                          shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) => containerOfStory(storyUsers[index],context,index),
                           itemCount: storyUsers.length,
                           separatorBuilder: (context, index) =>
-                              const SizedBox(width: 7),
+                              const SizedBox(width: 5),
                         ),
                       ),
                       const SizedBox(height: 15),
@@ -180,41 +181,144 @@ textOverflow: TextOverflow.ellipsis,
                                         ),
                         ),
 
-                                  Row(
-                                        children: [
-                                          IconButton(
-                                          onPressed: (){},
-                                              icon:const Icon(Icons.favorite_border,
-                                              color: AppColors.backgroundScaffoldColor,)
-                                          ),
-                                          const Padding(
-                                            padding: EdgeInsets.only(bottom:5.0,left:0,right: 8),
-                                            child: Text(
-                                              'Likes',
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 13.0,
-                                              ),
-                                            ),
-                                          ),
-                                          IconButton(
-                                              onPressed: (){},
-                                              icon:const Icon(Icons.mode_comment_outlined,
-                                                color: AppColors.backgroundScaffoldColor,)
-                                          ),
-                                          const Padding(
-                                            padding: EdgeInsets.only(bottom:5.0,left:0,right: 8),
-                                            child: Text(
-                                              'Likes',
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 13.0,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
+                                  // Row(
+                                  //       children: [
+                                  //         IconButton(
+                                  //         onPressed: (){},
+                                  //             icon:const Icon(Icons.favorite_border,
+                                  //             color: AppColors.backgroundScaffoldColor,)
+                                  //         ),
+                                  //         const Padding(
+                                  //           padding: EdgeInsets.only(bottom:5.0,left:0,right: 8),
+                                  //           child: Text(
+                                  //             'Likes',
+                                  //             style: TextStyle(
+                                  //               color: Colors.black,
+                                  //               fontSize: 13.0,
+                                  //             ),
+                                  //           ),
+                                  //         ),
+                                  //         IconButton(
+                                  //             onPressed: (){},
+                                  //             icon:const Icon(Icons.mode_comment_outlined,
+                                  //               color: AppColors.backgroundScaffoldColor,)
+                                  //         ),
+                                  //         const Padding(
+                                  //           padding: EdgeInsets.only(bottom:5.0,left:0,right: 8),
+                                  //           child: Text(
+                                  //             'Likes',
+                                  //             style: TextStyle(
+                                  //               color: Colors.black,
+                                  //               fontSize: 13.0,
+                                  //             ),
+                                  //           ),
+                                  //         ),
+                                  //       ],
+                                  //     ),
+                                    ]
+                                ),
+                          SizedBox(
+                            height: 70,
+                           // padding: const EdgeInsets.only(right:3),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+// crossAxisAlignment: CrossAxisAlignment.baseline,
+
+                              children: [
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+
+                                      icon: const GradientIcon(
+                                        icon: Icons.video_camera_back,
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.deepOrangeAccent,
+                                            Colors.purple
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        size: 25,
                                       ),
-                                    ]),
+
+// icon:const Icon(FontAwesomeIcons.houseUser) ,
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 8.0),
+                                      child: CustomText(
+                                          text: 'Live video',
+                                          color: AppColors.containerColor,
+                                          size: 15,
+                                          fontWeight: FontWeight.w200),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+
+                                      icon: const GradientIcon(
+                                        icon: Icons.add_photo_alternate_outlined,
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.deepOrangeAccent,
+                                            Colors.purple
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        size: 25,
+                                      ),
+
+// icon:const Icon(FontAwesomeIcons.houseUser) ,
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: CustomText(
+                                          text: 'Photo/video',
+                                          color: AppColors.containerColor,
+                                          size: 15,
+                                          fontWeight: FontWeight.w200),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    IconButton(
+                                      onPressed: () {},
+
+                                      icon: const GradientIcon(
+                                        icon: Icons.emoji_emotions_outlined,
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.deepOrangeAccent,
+                                            Colors.purple
+                                          ],
+                                          begin: Alignment.topLeft,
+                                          end: Alignment.bottomRight,
+                                        ),
+                                        size: 25,
+                                      ),
+
+// icon:const Icon(FontAwesomeIcons.houseUser) ,
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 10.0),
+                                      child: CustomText(
+                                          text: 'Feeling/activity',
+                                          color: AppColors.containerColor,
+                                          size: 15,
+                                          fontWeight: FontWeight.w200),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
                               ],
                             ),
                           ),

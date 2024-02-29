@@ -8,10 +8,6 @@ Widget gridViewWidget(context) => Container(
 
    shrinkWrap: true,
 
-    //physics:const NeverScrollableScrollPhysics(),
-
-    //scrollDirection: Axis.vertical,
-
     itemCount: 26,
 
     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

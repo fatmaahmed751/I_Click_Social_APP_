@@ -12,9 +12,11 @@ class DeskTopScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  DefaultTabController(
-        length:5,
-      child: Scaffold(
+    return
+      DefaultTabController(
+       length:5,
+     child:
+    Scaffold(
         appBar:   const MyAppBar(
           actions: [
             CircleAvatar(
@@ -94,8 +96,9 @@ class DeskTopScreen extends StatelessWidget {
 // // thickness: 0.3,
 //               color: AppColors.containerTextColor,
 //             ),
-              const DrawerForFirstColumnDesktop(),
+            const DrawerForFirstColumnDesktop(),
               middleColumnForDesktopScreen(),
+              //const MiddleColumnForDesktopScreen(),
               lastColumnForDesktopScreen()
             ],
           ),

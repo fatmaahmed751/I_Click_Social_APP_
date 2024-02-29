@@ -37,6 +37,16 @@ class StoryWidgetState extends State<StoryWidget> {
             ),
           ));
           break;
+        case MediaType.video:
+          storyItems.add(StoryItem.pageImage(
+            url: story.url,
+            controller: controller,
+            caption: story.caption,
+            duration: Duration(
+              milliseconds: (story.duration * 1000).toInt(),
+            ),
+          ));
+          break;
         case MediaType.text:
           storyItems.add(
             StoryItem.text(
@@ -82,10 +92,10 @@ class StoryWidgetState extends State<StoryWidget> {
   }
 
   @override
-  Widget build(BuildContext context) => Stack(
+  Widget build(BuildContext context) =>Stack(
     children: <Widget>[
       Material(
-        type: MaterialType.transparency,
+        type: MaterialType.card,
         child: StoryView(
           storyItems: storyItems,
           controller: controller,

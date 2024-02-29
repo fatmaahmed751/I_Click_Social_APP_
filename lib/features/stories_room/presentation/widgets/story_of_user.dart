@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-enum MediaType { image, text }
+enum MediaType { image, text ,video}
 
 class Story {
   final MediaType mediaType;

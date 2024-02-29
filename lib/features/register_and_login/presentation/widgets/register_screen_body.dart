@@ -36,7 +36,7 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
   @override
   Widget build(BuildContext context) {
 
-    UserRegisterCubit cubit = UserRegisterCubit.get(context);
+   // UserRegisterCubit cubit = UserRegisterCubit.get(context);
     return Scaffold(
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -54,103 +54,196 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
               ),
             ),
           ),
-          BlocConsumer<UserRegisterCubit,UserRegisterStates>(
-          builder:(context, state){
-            return Form(
-              key:formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(
-                    height:20,
-                  ),
-                  Image.asset('assets/images/i_click.png',
-                    height: 120,),
-                  const SizedBox(
-                    height:50,
-                  ),
-                  const Text(
-                    textAlign: TextAlign.center,
-                    'Sign Up',
-                    style:  TextStyle(
-                        decoration: TextDecoration.none,
-                        fontFamily: 'Bacute Regular',
-                        fontSize: 30,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.categoryTextColor),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  defaultFormField(
-                      prefixIcon: const Icon(
-                        Icons.short_text_sharp,
-                        color: AppColors.containerTextColor,
-                        size: 17,
-                      ) ,
-                      hintText: 'Name',
-                      controller:nameController,
-                      type: TextInputType.text),
-                  defaultFormField(
-                      prefixIcon: const Icon(
-                        Icons.email_outlined,
-                        color: AppColors.containerTextColor,
-                        size: 17,
-                      ) ,
-                      hintText: 'Email',
-                      controller:emailController,
-                      type: TextInputType.text),
-                  defaultFormField(
-                      prefixIcon: const Icon(
-                        Icons.lock_outline,
-                        color: AppColors.containerTextColor,
-                        size: 17,
-                      ),
-                      hintText: 'Password',
-                      controller:passwordController,
-                      type: TextInputType.visiblePassword,
-                      suffixIcon: const Icon(
-                        Icons.visibility_off_outlined,
-                        color: AppColors.containerTextColor,
-                      )),
-                  const SizedBox(
-                    height: 15,
-                  ),
+          Form(
+            key:formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height:20,
+                ),
+                Image.asset('assets/images/i_click.png',
+                  height: 120,),
+                const SizedBox(
+                  height:50,
+                ),
+                const Text(
+                  textAlign: TextAlign.center,
+                  'Sign Up',
+                  style:  TextStyle(
+                      decoration: TextDecoration.none,
+                      fontFamily: 'Bacute Regular',
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.categoryTextColor),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                defaultFormField(
+                    prefixIcon: const Icon(
+                      Icons.short_text_sharp,
+                      color: AppColors.containerTextColor,
+                      size: 17,
+                    ) ,
+                    hintText: 'Name',
+                    controller:nameController,
+                    type: TextInputType.text),
+                defaultFormField(
+                    prefixIcon: const Icon(
+                      Icons.email_outlined,
+                      color: AppColors.containerTextColor,
+                      size: 17,
+                    ) ,
+                    hintText: 'Email',
+                    controller:emailController,
+                    type: TextInputType.text),
+                defaultFormField(
+                    prefixIcon: const Icon(
+                      Icons.lock_outline,
+                      color: AppColors.containerTextColor,
+                      size: 17,
+                    ),
+                    hintText: 'Password',
+                    controller:passwordController,
+                    type: TextInputType.visiblePassword,
+                    suffixIcon: const Icon(
+                      Icons.visibility_off_outlined,
+                      color: AppColors.containerTextColor,
+                    )),
+                const SizedBox(
+                  height: 15,
+                ),
 
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  defaultButton(text: 'Sign Up', function: ()async {
-                    if (formKey.currentState!.validate()) {
-                      registerModel= UserRegisterModel(
-                        email:emailController.text,
-                        password: passwordController.text,
-                        name:nameController.text,
-                      );
-                     // cubit.getUserData(registerModel!);
-                      //cubit.getUserData(registerModel!);
-                      print(registerModel!.email);
-                      navigationByScreens(context, const BottomNavWidget());
-                    }else{
-                      print('not valide');
-                    }
+                const SizedBox(
+                  height: 15,
+                ),
+                defaultButton(text: 'Sign Up', function: ()async {
+                  if (formKey.currentState!.validate()) {
+                    registerModel= UserRegisterModel(
+                      email:emailController.text,
+                      password: passwordController.text,
+                      name:nameController.text,
+                    );
+                    // cubit.getUserData(registerModel!);
+                    //cubit.getUserData(registerModel!);
+                    print(registerModel!.email);
+                    navigationByScreens(context, const BottomNavWidget());
+                  }else{
+                    print('not valide');
                   }
-                  ),
+                }
+                ),
 
-                  const SizedBox(height: 15),
+                const SizedBox(height: 15),
 
-                  const SizedBox(height: 15),
-                  stayLoginIn(
-                      text: 'I Have an account ? ', secText: 'Sign In', onPressed: () {
-                    Navigator.pop(context);
-                  }),
-                ],
-              ),
-            );
-          },
-            listener: (context, state){},
+                const SizedBox(height: 15),
+                stayLoginIn(
+                    text: 'I Have an account ? ', secText: 'Sign In', onPressed: () {
+                  Navigator.pop(context);
+                }),
+              ],
+            ),
           ),
+          ///TODO
+          // BlocConsumer<UserRegisterCubit,UserRegisterStates>(
+          // builder:(context, state){
+          //   return Form(
+          //     key:formKey,
+          //     child: Column(
+          //       crossAxisAlignment: CrossAxisAlignment.center,
+          //       mainAxisAlignment: MainAxisAlignment.center,
+          //       children: [
+          //         const SizedBox(
+          //           height:20,
+          //         ),
+          //         Image.asset('assets/images/i_click.png',
+          //           height: 120,),
+          //         const SizedBox(
+          //           height:50,
+          //         ),
+          //         const Text(
+          //           textAlign: TextAlign.center,
+          //           'Sign Up',
+          //           style:  TextStyle(
+          //               decoration: TextDecoration.none,
+          //               fontFamily: 'Bacute Regular',
+          //               fontSize: 30,
+          //               fontWeight: FontWeight.w500,
+          //               color: AppColors.categoryTextColor),
+          //         ),
+          //         const SizedBox(
+          //           height: 20,
+          //         ),
+          //         defaultFormField(
+          //             prefixIcon: const Icon(
+          //               Icons.short_text_sharp,
+          //               color: AppColors.containerTextColor,
+          //               size: 17,
+          //             ) ,
+          //             hintText: 'Name',
+          //             controller:nameController,
+          //             type: TextInputType.text),
+          //         defaultFormField(
+          //             prefixIcon: const Icon(
+          //               Icons.email_outlined,
+          //               color: AppColors.containerTextColor,
+          //               size: 17,
+          //             ) ,
+          //             hintText: 'Email',
+          //             controller:emailController,
+          //             type: TextInputType.text),
+          //         defaultFormField(
+          //             prefixIcon: const Icon(
+          //               Icons.lock_outline,
+          //               color: AppColors.containerTextColor,
+          //               size: 17,
+          //             ),
+          //             hintText: 'Password',
+          //             controller:passwordController,
+          //             type: TextInputType.visiblePassword,
+          //             suffixIcon: const Icon(
+          //               Icons.visibility_off_outlined,
+          //               color: AppColors.containerTextColor,
+          //             )),
+          //         const SizedBox(
+          //           height: 15,
+          //         ),
+          //
+          //         const SizedBox(
+          //           height: 15,
+          //         ),
+          //         defaultButton(text: 'Sign Up', function: ()async {
+          //           if (formKey.currentState!.validate()) {
+          //             registerModel= UserRegisterModel(
+          //               email:emailController.text,
+          //               password: passwordController.text,
+          //               name:nameController.text,
+          //             );
+          //            // cubit.getUserData(registerModel!);
+          //             //cubit.getUserData(registerModel!);
+          //             print(registerModel!.email);
+          //             navigationByScreens(context, const BottomNavWidget());
+          //           }else{
+          //             print('not valide');
+          //           }
+          //         }
+          //         ),
+          //
+          //         const SizedBox(height: 15),
+          //
+          //         const SizedBox(height: 15),
+          //         stayLoginIn(
+          //             text: 'I Have an account ? ', secText: 'Sign In', onPressed: () {
+          //           Navigator.pop(context);
+          //         }),
+          //       ],
+          //     ),
+          //   );
+          // },
+          //   listener: (context, state){},
+          // ),
         ],
       ),
     );
