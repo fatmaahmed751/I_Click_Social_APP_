@@ -15,6 +15,7 @@ import 'features/chat_room/presentation/manager/chat_cubit/chat_cubit.dart';
 import 'features/desktop/presentation/views/desktop_screen.dart';
 import 'features/home/presentation/manager/home_cubit/home_cubit.dart';
 
+import 'features/home/presentation/widgets/bottom_nav_and_tabBar.dart';
 import 'features/home/presentation/widgets/container_of_story.dart';
 import 'features/register_and_login/data/repos/login_and_register_repo_impl.dart';
 import 'features/register_and_login/presentation/manager_view_model/login_cubit/login_cubit.dart';
@@ -118,7 +119,7 @@ class MyApp extends StatelessWidget {
           home:   ScreenTypeLayout.builder(
             // breakpoints:
             //     const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
-               mobile: (context) => const SplashScreen(),
+               mobile: (context) => const BottomNavWidget(),
                 tablet: (context) =>  const TabletScreen(),
                 desktop: (context) =>
                     const DeskTopScreen(),

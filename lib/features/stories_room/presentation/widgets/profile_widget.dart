@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_icon/gradient_icon.dart';
+import 'package:intl/intl.dart';
 import '../../../home/presentation/widgets/container_of_story.dart';
 
 
@@ -12,7 +13,32 @@ class ProfileWidget extends StatelessWidget {
     required this.date,
 
   }) ;
+  String formatDate(DateTime date) {
+    final now = DateTime.now();
+    final difference = now.difference(date);
 
+    if (difference.inSeconds < 60) {
+      return 'just now';
+    } else if (difference.inMinutes < 60) {
+      final minutes = difference.inMinutes;
+      return Intl.plural(
+        minutes,
+        zero: 'just now',
+        one: '$minutes minute ago',
+        other: '$minutes minutes ago',
+      );
+    } else if (difference.inHours < 24) {
+      final hours = difference.inHours;
+      return Intl.plural(
+        hours,
+        zero: 'just now',
+        one: '$hours hour ago',
+        other: '$hours hours ago',
+      );
+    } else {
+      return DateFormat('yMMMd').format(date);
+    }
+  }
   @override
   Widget build(BuildContext context) => Material(
     type: MaterialType.transparency,
@@ -41,7 +67,7 @@ class ProfileWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  date.toString(),
+                  formatDate(date),
                   style: const TextStyle(color: Colors.white38),
                 ),
                 const Spacer(),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 
+
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
+import '../../../../general/widgets/users_post_model.dart';
 import '../../../home/presentation/widgets/container_of_story.dart';
 import '../../../stories_room/presentation/widgets/story_show.dart';
 import '../../../tablet/presentation/widgets/card_of_new_news_tablet.dart';
@@ -14,73 +16,79 @@ import 'package:i_click/general/widgets/circle_avatar.dart';
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
 import "package:story_view/story_view.dart";
+//
+// Widget containerOfStory(UserStory userStory
+//    // , context, int index
+//     ) => Stack(
+//     children: [
+//
+//       // for (int i = 0; i < userStory.storyItems.length; i++)
+//       //   GestureDetector(
+//       //     onTap: () {
+//       //       Navigator.push(
+//       //           context,
+//       //           MaterialPageRoute(
+//       //               builder: (context) => StoryPage(
+//       //                 userStory: userStory,
+//       //               )));
+//       //     },
+//          // child:
+//           Container(
+//             width: 138,
+//             height: 222,
+//             decoration: BoxDecoration(
+//                 borderRadius: BorderRadius.circular(15),
+//                 image: DecorationImage(
+//                     fit: BoxFit.cover,
+//                     image: AssetImage(userStory.profileImage
+//                     // NetworkImage(
+//                     //     userStory.storyItems[i].url
+//                     ), // Wrap in Image.network()
+//                   // No image for text stories
+//                 )),
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               mainAxisAlignment: MainAxisAlignment.spaceAround,
+//               children: [
+//                 Padding(
+//                   padding: const EdgeInsets.only(left: 5.0),
+//                   child: Image(
+//                       image: AssetImage(userStory.profileImage)
+//                     // ),
+//                   ),
+//                 ),
+//                 const SizedBox(height: 28),
+//                 Padding(
+//                   padding: const EdgeInsets.only(left: 22.0,top: 20),
+//                   child: CustomText(
+//                     text: userStory.name,
+//                     color: AppColors.containerColor,
+//                     textAlign: TextAlign.center,
+//                     size: 15,
+//                   ),
+//                 ),
+//                 Padding(
+//                   padding: const EdgeInsets.only(left: 80.0),
+//                   child: IconButton(
+//                       onPressed: () {},
+//                       icon: SvgPicture.asset(
+//                         'assets/images/svg_images/union.svg',
+//                         height: 13,
+//                         width: 20,
+//                       )),
+//                 ),
+//               ],
+//             ),
+//           ),
+//        //),
+//     ],
+//
+// );
 
-Widget containerOfStory(UserStory userStory, context, int index) => Stack(
-    children: [
-
-      for (int i = 0; i < userStory.storyItems.length; i++)
-        GestureDetector(
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => StoryPage(
-                      userStory: userStory,
-                    )));
-          },
-          child:
-          Container(
-            width: 138,
-            height: 222,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(
-                        userStory.storyItems[i].url) // Wrap in Image.network()
-                  // No image for text stories
-                )),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 5.0),
-                  child: Image(
-                      image: AssetImage(userStory.profileImage)
-                    // ),
-                  ),
-                ),
-                const SizedBox(height: 28),
-                Padding(
-                  padding: const EdgeInsets.only(left: 22.0,top: 20),
-                  child: CustomText(
-                    text: userStory.name,
-                    color: AppColors.containerColor,
-                    textAlign: TextAlign.center,
-                    size: 15,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 80.0),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: SvgPicture.asset(
-                        'assets/images/svg_images/union.svg',
-                        height: 13,
-                        width: 20,
-                      )),
-                ),
-              ],
-            ),
-          ),
-       ),
-    ],
-
-);
 
 
-Widget middleColumnForDesktopScreen() => Expanded(
+Widget middleColumnForDesktopScreen(context) =>
+    Expanded(
       flex: 5,
       child: SingleChildScrollView(
         child: Padding(
@@ -94,9 +102,6 @@ Widget middleColumnForDesktopScreen() => Expanded(
               const SizedBox(
                 height: 10,
               ),
-
-// SizedBox(width: 15,),
-
               SizedBox(
                 height: 235,
                 child: ListView.separated(
@@ -106,7 +111,7 @@ Widget middleColumnForDesktopScreen() => Expanded(
                       containerOfStory(storyUsers[index], index, index),
                   itemCount: storyUsers.length,
                   separatorBuilder: (context, index) =>
-                      const SizedBox(width: 5),
+                  const SizedBox(width: 5),
                 ),
               ),
 
@@ -292,8 +297,16 @@ Widget middleColumnForDesktopScreen() => Expanded(
                   ],
                 ),
               ),
-
-              const CardOfNewPostForTablet(),
+              ListView.separated(
+               physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) =>
+                      cardOfNewPostForTablet(usersPosts[index]),
+                  separatorBuilder: (context, index) =>
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  itemCount: usersPosts.length),
 
               Card(
                 color: Colors.black54,
@@ -339,10 +352,21 @@ Widget middleColumnForDesktopScreen() => Expanded(
                         ),
                       ],
                     ),
-                    const ContainerForReelsForTablet(),
+                   const ContainerForReelsForTablet(),
                   ],
                 ),
               ),
+              const SizedBox(height: 10,),
+              ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) =>
+                      cardOfNewPostForTablet(usersPosts[index]),
+                  separatorBuilder: (context, index) =>
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  itemCount: usersPosts.length),
             ],
           ),
         ),

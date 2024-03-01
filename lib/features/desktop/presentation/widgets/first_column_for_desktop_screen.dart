@@ -122,7 +122,7 @@ class _DrawerForFirstColumnDesktopState extends State<DrawerForFirstColumnDeskto
       child: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(top: 15),
-          width: 300,
+          width: 250,
 
           height: MediaQuery
               .sizeOf(context)

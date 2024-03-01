@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:i_click/general/widgets/custom-text.dart';
 
 import '../../../../core/components/constants.dart';
+import '../../../../general/widgets/users_post_model.dart';
 
 class ContainerForReelsForTablet extends StatelessWidget {
   const ContainerForReelsForTablet({super.key});
@@ -18,8 +19,8 @@ class ContainerForReelsForTablet extends StatelessWidget {
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) => containerOfReel(),
-              itemCount: 6,
+              itemBuilder: (context, index) => containerOfReel(usersPosts[index]),
+              itemCount: usersPosts.length,
               separatorBuilder: (context, index) => const SizedBox(width: 5),
             ),
           ),
@@ -42,11 +43,12 @@ class ContainerForReelsForTablet extends StatelessWidget {
                 ),
               )),
         ),
+        SizedBox(height: 10,),
       ],
     );
   }
 
-  Widget containerOfReel() => Padding(
+  Widget containerOfReel(UserPostModel userPostModel) => Padding(
         padding: const EdgeInsets.only(right: 8.0),
         child: Stack(
           alignment: Alignment.bottomLeft,
@@ -63,7 +65,7 @@ class ContainerForReelsForTablet extends StatelessWidget {
                 // ),
               ),
               child: Image.network(
-                "https://img.freepik.com/free-photo/portrait-smiling-casual-woman_171337-11866.jpg?w=360&t=st=1706673586~exp=1706674186~hmac=54cff1d97260c9ffd965b8f8df8bdeb1f6b1efef4431341146e58ae67dd69978",
+                userPostModel.postImage,
                 fit: BoxFit.cover,
               ),
             ),
