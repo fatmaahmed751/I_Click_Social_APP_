@@ -12,13 +12,8 @@ Widget lastColumnForDesktopScreen()=>Expanded(
       padding: const EdgeInsets.only(right:8.0,left:30),
       child: Column(
         children: [
-          // const SizedBox(
-          //   height: 10,
-          // ),
-// SizedBox(width: 15,),
-
           const SizedBox(
-            height: 3,
+            height: 10,
           ),
 
           const Align(
@@ -82,7 +77,7 @@ Widget lastColumnForDesktopScreen()=>Expanded(
                   ),
                 ),
               ]),
-          const SizedBox(height: 5,),
+          const SizedBox(height: 10,),
           Row(
               children: [
                 Expanded(
@@ -131,7 +126,8 @@ Widget lastColumnForDesktopScreen()=>Expanded(
                     ),
                   ),
                 ),
-              ]),
+              ]
+          ),
           const SizedBox(
             height:10,
           ),
@@ -209,70 +205,66 @@ Widget lastColumnForDesktopScreen()=>Expanded(
     ),
   ),
 );
+Widget contactItem(UserPostModel userPostModel)=>Row(
+    children: [
+  CircleAvatar(
+    backgroundColor: Colors.transparent,
+  radius: 25,
+  backgroundImage:
+  AssetImage(userPostModel.secImage),
+  child:   const Padding(
+    padding: EdgeInsets.only(left: 35.0,top: 30
+    ),
+    child: CircleAvatar(
+      backgroundColor:Colors.green ,
+      foregroundColor: Colors.green,
+      radius: 5,
 
-Widget contactItem(UserPostModel userPostModel)=>SizedBox(
 
- // color: Colors.yellow,
-  height: 50,
-  child:   Row(
-mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-
-      FittedBox(
-        fit: BoxFit.cover,
-        child: Image(
-       // color: Colors.red,
-
-          width:70,
-     height: 70,
-//fit: BoxFit.cover,
-     image:  AssetImage(
-
-  userPostModel.profileImage,),
-
+    ),
   ),
+),
+      const SizedBox(width: 8,),
+
+       CustomText(text:userPostModel.name,
+        size: 12,
+        color: AppColors.containerColor,
       ),
-
-      //   Padding(
-
-      //   padding: const EdgeInsets.only(left: 40.0,top: 30
-
-      //   ),
-
-      //   child: CircleAvatar(
-
-      //     backgroundColor:Colors.green ,
-
-      //     foregroundColor: Colors.green,
-
-      //     radius: 15,
-
-      //
-
-      //
-
-      //   ),
-
-      // ),
-
-
-
-
-
-
-
-         CustomText(text:userPostModel.name,
-
-          size: 12,
-
-          color: AppColors.containerColor,
-
-        ),
-
-     ]
-
-
-
-  ),
+    ]
 );
+// Widget contactItem(UserPostModel userPostModel)=>SizedBox(
+//
+//  // color: Colors.yellow,
+//   height: 50,
+//   child:   Row(
+// mainAxisAlignment: MainAxisAlignment.start,
+//       crossAxisAlignment: CrossAxisAlignment.center,
+//       children: [
+//
+//       FittedBox(
+//         fit: BoxFit.cover,
+//         child: Image(
+//        // color: Colors.red,
+//
+//           width:70,
+//      height: 70,
+// //fit: BoxFit.cover,
+//      image:  AssetImage(
+//
+//   userPostModel.secImage,),
+//
+//   ),
+//       ),
+//
+//          CustomText(text:userPostModel.name,
+//
+//           size: 12,
+//
+//           color: AppColors.containerColor,
+//
+//         ),
+//
+//      ]
+//
+//   ),
+// );

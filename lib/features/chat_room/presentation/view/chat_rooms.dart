@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:i_click/general/widgets/users_post_model.dart';
 
 import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/circle_avatar.dart';
@@ -57,8 +58,8 @@ class ChatRoomsScreen extends StatelessWidget {
                   child: ListView.separated(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => circlePicture(25,29),
-                    itemCount: 6,
+                    itemBuilder: (context, index) => circlePicture(34,34,usersPosts[index]),
+                    itemCount:usersPosts.length,
                     separatorBuilder: (context, index) =>
                     const SizedBox(width: 7),
                   ),
@@ -75,8 +76,8 @@ class ChatRoomsScreen extends StatelessWidget {
                       onTap: (){
                         chatBubbles(context);
                       },
-                        child: containerOfChat(now)),
-                    itemCount: 6,
+                        child: containerOfChat(now,usersPosts[index])),
+                    itemCount: usersPosts.length,
                     separatorBuilder: (context, index) =>
                     const SizedBox(height: 9),
                   ),

@@ -258,7 +258,7 @@ Widget middleColumnForTabletScreen() => Expanded(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) =>
-                  cardOfNewPostForTablet(usersPosts[index]),
+                  cardOfNewPostForTablet(usersPosts[index],DateTime.now()),
               separatorBuilder: (context, index) =>
               const SizedBox(
                 height: 8,

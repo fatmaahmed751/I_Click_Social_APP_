@@ -20,6 +20,7 @@ import 'features/home/presentation/widgets/container_of_story.dart';
 import 'features/register_and_login/data/repos/login_and_register_repo_impl.dart';
 import 'features/register_and_login/presentation/manager_view_model/login_cubit/login_cubit.dart';
 import 'features/register_and_login/presentation/manager_view_model/register_cubit/register_cubit.dart';
+import 'features/register_and_login/presentation/view/login_screen.dart';
 import 'features/tablet/presentation/view/tablet_screen.dart';
 import 'firebase_options.dart';
 
@@ -60,65 +61,14 @@ class MyApp extends StatelessWidget {
 
     return BlocProvider(
            create: (context) => HomeCubit(),
-    //   BlocProvider(
-    //         create: (context) => HomeCubit(),
-    //  child: MaterialApp(
-    //     theme: ThemeData(),
-    //     scrollBehavior: MyCustomScrollBehavior(),
-    //     debugShowCheckedModeBanner: false,
-    //     // theme: ThemeData.dark().copyWith(
-    //     //   scaffoldBackgroundColor: Colors.black,
-    //     // ),
-    //     home:
-    //     ScreenTypeLayout.builder(
-    //       breakpoints:
-    //       const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
-    //       mobile: (context) => const SplashScreen(),
-    //       tablet: (context) =>  const TabletScreen(),
-    //       desktop: (context) =>
-    //       const DeskTopScreen(),
-    //       watch: (context) => Container(color: Colors.purple),
-    //     ))
-    // );
-    //   MultiBlocProvider(
-    //   providers: [
-    //     BlocProvider(
-    //       create: (context) => HomeCubit(),
-    //     ),
-    //     // BlocProvider(
-    //     //   create: (context) => UserLoginCubit(),
-    //     //       //LoginAndRegisterRepoImplement()),
-    //     // ),
-    //     BlocProvider(
-    //       create: (context) =>
-    //           UserRegisterCubit(),
-    //              // LoginAndRegisterRepoImplement()),
-    //     ),
-    //     BlocProvider(
-    //       create: (context) => ChatCubit(
-    //        //   ChatRepoImplement()
-    //       ),
-    //     ),
-    //   ],
-    //   child:
+
     child:  MaterialApp(
       debugShowCheckedModeBanner: false,
           theme: ThemeData(),
         scrollBehavior: MyCustomScrollBehavior(),
-
-    //           builder: (context, child) => ResponsiveBreakpoints.builder(
-    //   child: child!,
-    //   breakpoints: [
-    //     const Breakpoint(start: 0, end: 450, name: MOBILE),
-    //     const Breakpoint(start: 451, end: 800, name: TABLET),
-    //     const Breakpoint(start: 801, end: 1920, name: DESKTOP),
-    //     const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
-    //   ],
-    // ),
-    // //initialRoute: '/',
           home:   ScreenTypeLayout.builder(
-            // breakpoints:
-            //     const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
+            breakpoints:
+                const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
                mobile: (context) => const BottomNavWidget(),
                 tablet: (context) =>  const TabletScreen(),
                 desktop: (context) =>

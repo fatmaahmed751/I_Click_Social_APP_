@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_icon/gradient_icon.dart';
 import 'package:intl/intl.dart';
 
-import '../../core/components/constants.dart';
-import '../../features/home/presentation/widgets/container_of_story.dart';
-import '../../features/tablet/presentation/widgets/card_of_new_news_tablet.dart';
-import '../../features/tablet/presentation/widgets/container_for_reels_tablet.dart';
-import 'custom-text.dart';
+
+
 //DateTime date = DateTime.now().copyWith();
 
 // String formatDate(DateTime date) {
@@ -44,7 +40,7 @@ class UserPostModel {
   final DateTime dateOfPost;
   final String postImage;
   final String hashTage;
-
+  final String secImage;
   UserPostModel({
     required this.profileImage,
     required this.post,
@@ -52,6 +48,7 @@ class UserPostModel {
     required this.dateOfPost,
     required this.postImage,
     required this.hashTage,
+    required this.secImage,
   });
   String formatDate(DateTime date) {
     final now = DateTime.now();
@@ -85,15 +82,17 @@ class UserPostModel {
   List<UserPostModel> usersPosts = [
 
     UserPostModel(
+      secImage:'assets/images/user_profile_image/uu_removebg.png',
       hashTage: '#Programming',
       postImage: 'https://i.pinimg.com/564x/15/61/0b/15610b6fe881d13404ce790f8d2d088a.jpg',
       profileImage: "assets/images/user_profile_image/image_one.png",
-      post: "That'\s How I ReCharge My Soul...",
+      post: "That'\s How I Recharged My Soul...",
       name: 'Mark Sooll',
       dateOfPost:DateTime.now(),
       //  dateOfPost: Jiffy.parseFromDateTime(date).fromNow().toString(),
     ),
     UserPostModel(
+      secImage:'assets/images/user_profile_image/rem_six.png',
       hashTage: '#Developer',
       postImage: 'https://i.pinimg.com/564x/03/2b/b4/032bb4387d0796e02d7e23ac92adea99.jpg',
       profileImage: 'assets/images/user_profile_image/image_four.png',
@@ -103,6 +102,7 @@ class UserPostModel {
     ),
     //dateOfPost: Jiffy.parseFromDateTime(date).fromNow().toString()),
     UserPostModel(
+      secImage:'assets/images/user_profile_image/rem_four.png',
       hashTage: '#Passion',
       postImage: 'https://i.pinimg.com/564x/ee/59/d7/ee59d747baf54cc50385f6152ec4dacd.jpg',
       profileImage: 'assets/images/user_profile_image/Image_six.png',
@@ -111,6 +111,7 @@ class UserPostModel {
       dateOfPost:DateTime.now(),
     ),
     UserPostModel(
+        secImage:'assets/images/user_profile_image/rem_seven.png',
         hashTage: '#Travelling',
         postImage: 'https://i.pinimg.com/564x/cc/1c/ea/cc1ceadf40f22d7db7fe160a86b5c366.jpg',
       profileImage: "assets/images/user_profile_image/image_two.png",
@@ -118,12 +119,13 @@ class UserPostModel {
       name: 'Abdoo Ahmed',
       dateOfPost:DateTime.now()),
     UserPostModel(
+      secImage:'assets/images/user_profile_image/rem_two.png',
       hashTage: '#Palestine',
       postImage: 'https://i.pinimg.com/564x/41/fc/d4/41fcd46f874df438ed1d140624ba170e.jpg',
       profileImage:
-      "assets/images/user_profile_image/f_one-removebg-preview.png",
+      "assets/images/user_profile_image/rem_two.png",
       post: "WE WiLL NEVER Forget...\n WE WiLL NEVER Forget...",
-      name: 'Sally Tony',
+      name: 'Aliaa Ali',
       // dateOfPost: Jiffy.parse(date).fromNow(),
       dateOfPost:DateTime.now(),
       //  Jiffy.now(),
@@ -132,6 +134,7 @@ class UserPostModel {
 
 
     UserPostModel(
+     secImage: 'assets/images/user_profile_image/rem_three.png',
         hashTage: '#Future',
         postImage: 'https://i.pinimg.com/564x/41/30/54/41305442707380e5a84cff9bdf9d8910.jpg',
       profileImage:

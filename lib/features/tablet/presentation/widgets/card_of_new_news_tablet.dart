@@ -6,7 +6,33 @@ import '../../../../core/components/constants.dart';
 import '../../../../general/widgets/custom-text.dart';
 import '../../../../general/widgets/users_post_model.dart';
 
-Widget cardOfNewPostForTablet(UserPostModel userPostModel) => Card(
+String formatDate(DateTime date) {
+  final now = DateTime.now();
+  final difference = now.difference(date);
+
+  if (difference.inSeconds < 60) {
+    return 'just now';
+  } else if (difference.inMinutes < 60) {
+    final minutes = difference.inMinutes;
+    return Intl.plural(
+      minutes,
+      zero: 'just now',
+      one: '$minutes minute ago',
+      other: '$minutes minutes ago',
+    );
+  } else if (difference.inHours < 24) {
+    final hours = difference.inHours;
+    return Intl.plural(
+      hours,
+      zero: 'just now',
+      one: '$hours hour ago',
+      other: '$hours hours ago',
+    );
+  } else {
+    return DateFormat('yMMMd').format(date);
+  }
+}
+Widget cardOfNewPostForTablet(UserPostModel userPostModel,DateTime now) => Card(
       color: Colors.black54,
 //AppColors.kPrimaryColor,
       clipBehavior: Clip.hardEdge,
@@ -21,11 +47,12 @@ Widget cardOfNewPostForTablet(UserPostModel userPostModel) => Card(
             Container(
               width: 310,
               child: Row(
+                textBaseline: TextBaseline.alphabetic,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
-                    width: 80,
+                    width: 100,
 
                     child: Image(
                         //radius: 25,
@@ -33,7 +60,7 @@ Widget cardOfNewPostForTablet(UserPostModel userPostModel) => Card(
                         ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.only(top: 15.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -46,7 +73,9 @@ Widget cardOfNewPostForTablet(UserPostModel userPostModel) => Card(
                           height: 3,
                         ),
                          CustomText(
-                          text:  DateFormat('MMMd').format(userPostModel.dateOfPost),
+
+                          text: formatDate(now),
+                         // DateFormat('MMMd').format(userPostModel.dateOfPost),
                           color: Colors.white38,
                         )
                       ],

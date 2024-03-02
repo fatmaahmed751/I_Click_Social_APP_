@@ -44,7 +44,7 @@ class ProfileScreenBody extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              IntrinsicHeight(child: gridViewWidget(context))
+              gridViewWidget(context)
             ],
           ),
         ),

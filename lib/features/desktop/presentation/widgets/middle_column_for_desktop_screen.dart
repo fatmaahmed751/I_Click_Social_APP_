@@ -255,12 +255,6 @@ Widget middleColumnForDesktopScreen(context) =>
                             ],
                           ),
 
-                          // const SizedBox(
-                          //
-                          //   width: 7,
-                          //
-                          // ),
-
                           Row(
                             children: [
                               IconButton(
@@ -301,7 +295,7 @@ Widget middleColumnForDesktopScreen(context) =>
                physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) =>
-                      cardOfNewPostForTablet(usersPosts[index]),
+                      cardOfNewPostForTablet(usersPosts[index],DateTime.now()),
                   separatorBuilder: (context, index) =>
                   const SizedBox(
                     height: 8,
@@ -342,9 +336,9 @@ Widget middleColumnForDesktopScreen(context) =>
                         const SizedBox(
                           width: 10,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: const Icon(
+                        const Padding(
+                          padding: EdgeInsets.only(top: 8.0),
+                          child: Icon(
                             Icons.more_horiz_sharp,
                             color: AppColors.containerColor,
                             size: 22.0,
@@ -361,7 +355,7 @@ Widget middleColumnForDesktopScreen(context) =>
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context, index) =>
-                      cardOfNewPostForTablet(usersPosts[index]),
+                      cardOfNewPostForTablet(usersPosts[index],DateTime.now()),
                   separatorBuilder: (context, index) =>
                   const SizedBox(
                     height: 8,
