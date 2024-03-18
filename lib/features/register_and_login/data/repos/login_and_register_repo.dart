@@ -6,8 +6,8 @@ import '../models/user_register_model.dart';
 
 abstract class LoginAndRegisterRepo{
 
-// Future<Either<Failure,UserLoginModel>>  fetchUserLoginData(UserLoginModel userLoginModel);
-// Future<Either<Failure,UserRegisterModel>>  fetchUserRegisterData(UserRegisterModel userRegisterModel);
-// Future<UserRegisterModel>saveUserData(
-//     {required String uId,required String name,required String image, required String email});
+Future<Either<Failure,UserLoginModel>>  fetchUserLoginData(UserLoginModel userLoginModel);
+Future<Either<Failure,UserRegisterModel>>  fetchUserRegisterData(UserRegisterModel userRegisterModel);
+Future<UserRegisterModel>saveUserData(
+    {required String uId,required String name,required String image, required String email});
 }

@@ -25,6 +25,7 @@ class SearchBarWidget extends StatelessWidget {
                 controller: searchController,
                 // textAlign: TextAlign.center,
                 decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.only(top: 3,left:8),
                   hintText: 'Search...',
                   hintStyle: const TextStyle(
                       fontSize: 14,

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../../../../core/components/constants.dart';
 
 Widget gridViewWidget(context) => GridView.builder(
-
+physics: const NeverScrollableScrollPhysics(),
  shrinkWrap: true,
 
   itemCount: 26,
 
   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
 
-    crossAxisCount: 3,
+    crossAxisCount: 2,
 
     childAspectRatio: 17.65 / 18.6,
 

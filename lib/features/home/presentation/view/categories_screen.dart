@@ -41,21 +41,19 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 25,),
                       const Row(
                         children: [
                           Expanded(
                             flex:2,
                               child: SearchBarWidget()),
-
-                         SizedBox(width: 40,),
+Spacer(),
+                        // SizedBox(width: 50,),
                           // SizedBox(width: 15,),
-                          Expanded(
-                            flex:1,
-                            child: CircleAvatar(
-                              radius: 22,
-                              backgroundImage: NetworkImage(
-                                  'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'),
-                            ),
+                          CircleAvatar(
+                            radius: 22,
+                            backgroundImage: NetworkImage(
+                                'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'),
                           ),
                         ],
                       ),

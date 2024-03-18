@@ -40,7 +40,7 @@ class BottomNavWidget extends StatelessWidget {
               // )
             ),
                //color:Colors.red,
-               height:85,
+               height:82,
                child: BottomNavigationBar(
                    onTap: (index){
                      // setState(() {
@@ -51,7 +51,7 @@ class BottomNavWidget extends StatelessWidget {
                    elevation: 50,
                    selectedIconTheme: const IconThemeData(
                        color: AppColors.deepOrangeColor,
-                       size: 35
+                       size:25
                    ),
                    type: BottomNavigationBarType.fixed,
                    backgroundColor: Colors.black54,

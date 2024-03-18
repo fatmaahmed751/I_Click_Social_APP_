@@ -41,9 +41,6 @@ class ProfileScreenBody extends StatelessWidget {
                 color: AppColors.containerColor,
               ),
               const IconsOfProfileRow(),
-              const SizedBox(
-                height: 20,
-              ),
               gridViewWidget(context)
             ],
           ),

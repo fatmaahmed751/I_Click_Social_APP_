@@ -26,9 +26,9 @@ import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: DefaultFirebaseOptions.currentPlatform,
-  // );
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 //   await Firebase.initializeApp(
 // // Replace with actual values
 //       options: const FirebaseOptions(
@@ -38,7 +38,7 @@ void main() async {
 //         projectId: "i-click-app-d0f07",
 //       )
 //      );
-  await DesktopWindow.setMinWindowSize(const Size(350, 600));
+ // await DesktopWindow.setMinWindowSize(const Size(350, 600));
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
@@ -59,24 +59,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return BlocProvider(
-           create: (context) => HomeCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+        create: (context) => HomeCubit()),
+        BlocProvider(
+            create: (context) => ChatCubit(ChatRepoImplement())),
+        BlocProvider(
+            create: (context) => UserLoginCubit(LoginAndRegisterRepoImplement())),
+],
+      child:  MaterialApp(
+        debugShowCheckedModeBanner: false,
+            theme: ThemeData(),
+          home:const SplashScreen(),
+          scrollBehavior: MyCustomScrollBehavior(),
+            // home:   ScreenTypeLayout.builder(
+            //   breakpoints:
+            //       const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
+            //      mobile: (context) => const BottomNavWidget(),
+            //       tablet: (context) =>  const TabletScreen(),
+            //       desktop: (context) =>
+            //           const DeskTopScreen(),
+            //      watch: (context) => Container(color: Colors.purple),
+            // )
+      ),
+      );
 
-    child:  MaterialApp(
-      debugShowCheckedModeBanner: false,
-          theme: ThemeData(),
-        scrollBehavior: MyCustomScrollBehavior(),
-          home:   ScreenTypeLayout.builder(
-            breakpoints:
-                const ScreenBreakpoints(tablet: 700, desktop: 1000, watch: 300),
-               mobile: (context) => const BottomNavWidget(),
-                tablet: (context) =>  const TabletScreen(),
-                desktop: (context) =>
-                    const DeskTopScreen(),
-               watch: (context) => Container(color: Colors.purple),
-          )
-    ),
-    );
 
    // );
    //    ),

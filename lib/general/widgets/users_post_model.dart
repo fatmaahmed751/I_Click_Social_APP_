@@ -2,37 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 
-
-//DateTime date = DateTime.now().copyWith();
-
-// String formatDate(DateTime date) {
-//   final date = DateTime.now();
-//   final difference = date.difference(date);
-//
-//   if (difference.inSeconds < 60) {
-//     return 'just now';
-//   } else if (difference.inMinutes < 60) {
-//     final minutes = difference.inMinutes;
-//     return Intl.plural(
-//       minutes,
-//       zero: 'just now',
-//       one: '$minutes minute ago',
-//       other: '$minutes minutes ago',
-//     );
-//   } else if (difference.inHours < 24) {
-//     final hours = difference.inHours;
-//     return Intl.plural(
-//       hours,
-//       zero: 'just now',
-//       one: '$hours hour ago',
-//       other: '$hours hours ago',
-//     );
-//   } else {
-//     // Format date as YYYY-MM-DD for older dates
-//     return DateFormat('yyyy-MM-dd').format(date);
-//   }
-// }
-
 class UserPostModel {
   final String profileImage;
   final String post;
