@@ -36,7 +36,7 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
   @override
   Widget build(BuildContext context) {
 
-   // UserRegisterCubit cubit = UserRegisterCubit.get(context);
+  UserRegisterCubit cubit = UserRegisterCubit.get(context);
     return Scaffold(
       body: Stack(
         alignment: Alignment.bottomCenter,
@@ -126,7 +126,7 @@ class _RegisterScreenBodyState extends State<RegisterScreenBody> {
                       password: passwordController.text,
                       name:nameController.text,
                     );
-                    // cubit.getUserData(registerModel!);
+                   cubit.getUserData(registerModel!);
                     //cubit.getUserData(registerModel!);
                     print(registerModel!.email);
                     navigationByScreens(context, const BottomNavWidget());

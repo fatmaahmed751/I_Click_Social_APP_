@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gradient_icon/gradient_icon.dart';
 import 'package:i_click/features/register_and_login/presentation/widgets/picturs_for_profile.dart';
 import 'package:i_click/features/register_and_login/presentation/widgets/row_of_icons_profile_screen.dart';
 import 'package:i_click/features/register_and_login/presentation/widgets/row_of_profile_details.dart';

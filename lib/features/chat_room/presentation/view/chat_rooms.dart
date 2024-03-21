@@ -58,8 +58,8 @@ class ChatRoomsScreen extends StatelessWidget {
                   child: ListView.separated(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) => circlePicture(34,34,usersPosts[index]),
-                    itemCount:usersPosts.length,
+                    itemBuilder: (context, index) => circlePicture(34,34,users[index]),
+                    itemCount:users.length,
                     separatorBuilder: (context, index) =>
                     const SizedBox(width: 7),
                   ),
@@ -76,7 +76,7 @@ class ChatRoomsScreen extends StatelessWidget {
                       onTap: (){
                         chatBubbles(context);
                       },
-                        child: containerOfChat(now,usersPosts[index])),
+                        child: containerOfChat(now,users[index])),
                     itemCount: usersPosts.length,
                     separatorBuilder: (context, index) =>
                     const SizedBox(height: 9),

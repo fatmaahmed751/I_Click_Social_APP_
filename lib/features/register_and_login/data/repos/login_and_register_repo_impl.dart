@@ -44,7 +44,6 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
   Future<Either<Failure, UserRegisterModel>> fetchUserRegisterData(
       UserRegisterModel userRegisterModel) async {
     try {
-
       await auth.createUserWithEmailAndPassword(
           email: userRegisterModel.email,
           password: userRegisterModel.password);
@@ -52,7 +51,9 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
           uId: auth.currentUser!.uid,
           name: userRegisterModel.name,
           email: userRegisterModel.email,
-         image: userRegisterModel.image
+         image: userRegisterModel.image,
+        coverImage: userRegisterModel.coverImage
+
       );
       return Right(userRegisterModel);
 
@@ -71,20 +72,22 @@ class LoginAndRegisterRepoImplement extends LoginAndRegisterRepo {
     }
   }
 
+
   @override
-
-
    Future<UserRegisterModel> saveUserData({
      required String uId,
     required String name,
     required String image,
     required String email,
+    required String coverImage,
   }) async {
     UserRegisterModel userRegisterModel = UserRegisterModel(
         name: name,
         uId: uId,
-image:image,
-        email:email
+image:'https://img.freepik.com/premium-photo/photo-concept-art-illustration-potrait-women-hijab-generative-ai-technology_319965-160.jpg?size=626&ext=jpg&uid=R90663384&ga=GA1.1.1511182363.1696914515&semt=sph'
+        ,
+        email:email,
+      coverImage: 'https://www.freepik.com/free-photo/happy-arab-woman-hijab-portrait-smiling-girl-posing-red-studio-background-young-emotional-woman-human-emotions-facial-expression-concept-front-view_11527721.htm#fromView=search&page=1&position=2&uuid=bab6bc38-97ac-4c7c-9cff-eebd43561c52'
     );
     await FirebaseFirestore.instance.collection('users').
     doc(uId).
@@ -99,4 +102,23 @@ image:image,
   }
 
 
-}
+  //UserRegisterModel? userRegisterModel;
+  @override
+  Future<Either<Failure, UserRegisterModel>> getUserData()async {
+
+    String userId = FirebaseAuth.instance.currentUser!.uid;
+    UserRegisterModel? userRegisterModel;
+    await FirebaseFirestore.instance.collection('users').
+    doc(userId).
+    get().then((value) {
+      userRegisterModel = UserRegisterModel.fromJson(value.data()!);
+      print(userId);
+      print(userRegisterModel!.image);
+    }).catchError((e) {
+      print(e.toString());
+    });
+   return  Right(userRegisterModel!);
+  }
+  }
+
+

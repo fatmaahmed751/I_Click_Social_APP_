@@ -29,15 +29,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-//   await Firebase.initializeApp(
-// // Replace with actual values
-//       options: const FirebaseOptions(
-//         apiKey: "AIzaSyDlcbJA3Fyko6ByQ4SYHNWmmNSThyQ6yrU",
-//         appId: "1:296340636091:web:235f4c6fb5b7df463c449e",
-//         messagingSenderId: "296340636091",
-//         projectId: "i-click-app-d0f07",
-//       )
-//      );
+  await Firebase.initializeApp(
+// Replace with actual values
+      options: const FirebaseOptions(
+        apiKey: "AIzaSyDlcbJA3Fyko6ByQ4SYHNWmmNSThyQ6yrU",
+        appId: "1:296340636091:web:235f4c6fb5b7df463c449e",
+        messagingSenderId: "296340636091",
+        projectId: "i-click-app-d0f07",
+      )
+     );
  // await DesktopWindow.setMinWindowSize(const Size(350, 600));
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
@@ -64,6 +64,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
         create: (context) => HomeCubit()),
         BlocProvider(
+            create: (context) => UserRegisterCubit(LoginAndRegisterRepoImplement())..getUserRegisterData()),
+        BlocProvider(
             create: (context) => ChatCubit(ChatRepoImplement())),
         BlocProvider(
             create: (context) => UserLoginCubit(LoginAndRegisterRepoImplement())),
@@ -71,7 +73,7 @@ class MyApp extends StatelessWidget {
       child:  MaterialApp(
         debugShowCheckedModeBanner: false,
             theme: ThemeData(),
-          home:const SplashScreen(),
+          home:const LoginScreen(),
           scrollBehavior: MyCustomScrollBehavior(),
             // home:   ScreenTypeLayout.builder(
             //   breakpoints:
