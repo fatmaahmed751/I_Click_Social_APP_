@@ -41,13 +41,16 @@ class UserRegisterCubit extends Cubit<UserRegisterStates> {
 
 
   File? file;
-
  Future getImage()async {
    final ImagePicker picker = ImagePicker();
    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-   if (image != null) {
+
+
+    if (image != null)
+   {
      file = File(image.path);
      emit(PickedProfileImageSuccessState());
+     print(image.path);
    }else{
      emit(PickedProfileImageErrorState());
    }
